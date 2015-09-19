@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Tab">
+  <DataContextMoniker Name="/TabDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6e9aaa62-4eb8-459b-b739-9634f34cfc06" absoluteBounds="0.5, 0.5, 2, 7.3476383463541657">
+      <DataClassMoniker Name="/TabDataContext/aspnet_Tab" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1202b103-51b8-4cfd-982c-57393d1c0a89" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 6.7876383463541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

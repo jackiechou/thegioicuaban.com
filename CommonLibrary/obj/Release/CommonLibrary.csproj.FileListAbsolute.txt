@@ -1,0 +1,3 @@
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\CommonLibrary\obj\Release\CommonLibrary.csprojResolveAssemblyReference.cache
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\CommonLibrary\obj\Release\CommonLibrary.Resources.Resources.resources
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\CommonLibrary\obj\Release\CommonLibrary.csproj.GenerateResource.Cache

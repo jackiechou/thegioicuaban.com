@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShippingModelStoreContainer" CdmEntityContainer="ShippingEntities">
+    <EntitySetMapping Name="ShippingCarriers">
+      <EntityTypeMapping TypeName="ShippingModel.ShippingCarrier">
+        <MappingFragment StoreEntitySet="ShippingCarriers">
+          <ScalarProperty Name="ShipperCarrier_Id" ColumnName="ShipperCarrier_Id" />
+          <ScalarProperty Name="ShipperCarrier_Name" ColumnName="ShipperCarrier_Name" />
+          <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+          <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippingMethods">
+      <EntityTypeMapping TypeName="ShippingModel.ShippingMethod">
+        <MappingFragment StoreEntitySet="ShippingMethods">
+          <ScalarProperty Name="ShipMethod_Id" ColumnName="ShipMethod_Id" />
+          <ScalarProperty Name="ShipMethod_Name" ColumnName="ShipMethod_Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippingRates">
+      <EntityTypeMapping TypeName="ShippingModel.ShippingRate">
+        <MappingFragment StoreEntitySet="ShippingRates">
+          <ScalarProperty Name="ShipperCarrier_Id" ColumnName="ShipperCarrier_Id" />
+          <ScalarProperty Name="ShippingMethod_Id" ColumnName="ShippingMethod_Id" />
+          <ScalarProperty Name="ShippingRate_Id" ColumnName="ShippingRate_Id" />
+          <ScalarProperty Name="ShippingRate_CountryId" ColumnName="ShippingRate_CountryId" />
+          <ScalarProperty Name="ShippingRate_Name" ColumnName="ShippingRate_Name" />
+          <ScalarProperty Name="ShippingRate_ZipStart" ColumnName="ShippingRate_ZipStart" />
+          <ScalarProperty Name="ShippingRate_ZipEnd" ColumnName="ShippingRate_ZipEnd" />
+          <ScalarProperty Name="ShippingRate_WeightStart" ColumnName="ShippingRate_WeightStart" />
+          <ScalarProperty Name="ShippingRate_WeightEnd" ColumnName="ShippingRate_WeightEnd" />
+          <ScalarProperty Name="ShippingRate_Value" ColumnName="ShippingRate_Value" />
+          <ScalarProperty Name="ShippingRate_PackageFee" ColumnName="ShippingRate_PackageFee" />
+          <ScalarProperty Name="ShippingRate_VAT" ColumnName="ShippingRate_VAT" />
+          <ScalarProperty Name="ShippingRate_CurrencyCode" ColumnName="ShippingRate_CurrencyCode" />
+          <ScalarProperty Name="ShippingRate_ListOrder" ColumnName="ShippingRate_ListOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

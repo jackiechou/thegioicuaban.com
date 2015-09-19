@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShippingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ShippingModelStoreContainer">
+    <EntitySet Name="aspnet_Countries" EntityType="ShippingModel.Store.aspnet_Countries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShippingCarriers" EntityType="ShippingModel.Store.ShippingCarriers" store:Type="Tables" Schema="Sales" />
+    <EntitySet Name="ShippingMethods" EntityType="ShippingModel.Store.ShippingMethods" store:Type="Tables" Schema="Sales" />
+    <EntitySet Name="ShippingRates" EntityType="ShippingModel.Store.ShippingRates" store:Type="Tables" Schema="Sales" />
+  </EntityContainer>
+  <EntityType Name="aspnet_Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ISO2_Alpha" Type="varchar" MaxLength="2" />
+    <Property Name="ISO3_Alpha" Type="varchar" MaxLength="3" />
+    <Property Name="IANA_Internet" Type="varchar" MaxLength="4" />
+    <Property Name="UN_Vehicle" Type="varchar" MaxLength="4" />
+    <Property Name="IOC_Olympic" Type="varchar" MaxLength="4" />
+    <Property Name="UN_ISO_Numeric" Type="varchar" MaxLength="4" />
+    <Property Name="ITU_Calling" Type="varchar" MaxLength="6" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ShippingCarriers">
+    <Key>
+      <PropertyRef Name="ShippingCarrier_Id" />
+    </Key>
+    <Property Name="ShippingCarrier_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShippingCarrier_Name" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ListOrder" Type="int" />
+    <Property Name="Discontinued" Type="bit" />
+  </EntityType>
+  <EntityType Name="ShippingMethods">
+    <Key>
+      <PropertyRef Name="ShippingMethod_Id" />
+    </Key>
+    <Property Name="ShippingMethod_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShippingMethod_Name" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="Discontinued" Type="bit" />
+  </EntityType>
+  <EntityType Name="ShippingRates">
+    <Key>
+      <PropertyRef Name="ShippingRate_Id" />
+    </Key>
+    <Property Name="ShippingCarrier_Id" Type="int" Nullable="false" />
+    <Property Name="ShippingMethod_Id" Type="int" Nullable="false" />
+    <Property Name="ShippingRate_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShippingRate_CountryId" Type="int" Nullable="false" />
+    <Property Name="ShippingRate_Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ShippingRate_ZipStart" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ShippingRate_ZipEnd" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ShippingRate_WeightStart" Type="decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="ShippingRate_WeightEnd" Type="decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="ShippingRate_Value" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_PackageFee" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_VAT" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_CurrencyCode" Type="nchar" Nullable="false" MaxLength="3" />
+    <Property Name="ShippingRate_ListOrder" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

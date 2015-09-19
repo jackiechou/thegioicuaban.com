@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CommonModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CommonModelStoreContainer">
+          <EntitySet Name="aspnet_ContentItems" EntityType="CommonModel.Store.aspnet_ContentItems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Routes" EntityType="CommonModel.Store.aspnet_Routes" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="aspnet_ContentItems">
+          <Key>
+            <PropertyRef Name="ContentItemId" />
+          </Key>
+          <Property Name="ContentItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContentTypeId" Type="int" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="ContentKey" Type="nvarchar" MaxLength="250" />
+          <Property Name="Indexed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Routes">
+          <Key>
+            <PropertyRef Name="RouteId" />
+          </Key>
+          <Property Name="PortalId" Type="int" Nullable="false" />
+          <Property Name="ContentItemId" Type="int" Nullable="false" />
+          <Property Name="CultureCode" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="RouteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RouteName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="RouteUrl" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="PhysicalFile" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="CheckPhysicalUrlAccess" Type="bit" Nullable="false" />
+          <Property Name="RouteValueDictionary" Type="nvarchar" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="ListOrder" Type="int" Nullable="false" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CommonModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CommonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_ContentItems" EntityType="CommonModel.aspnet_ContentItems" />
+          <EntitySet Name="aspnet_Routes" EntityType="CommonModel.aspnet_Routes" />
+        </EntityContainer>
+        <EntityType Name="aspnet_ContentItems">
+          <Key>
+            <PropertyRef Name="ContentItemId" />
+          </Key>
+          <Property Name="ContentItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ContentKey" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Indexed" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Routes">
+          <Key>
+            <PropertyRef Name="RouteId" />
+          </Key>
+          <Property Type="Int32" Name="PortalId" Nullable="false" />
+          <Property Type="Int32" Name="ContentItemId" Nullable="false" />
+          <Property Type="String" Name="CultureCode" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="RouteId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RouteName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RouteUrl" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PhysicalFile" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="CheckPhysicalUrlAccess" Nullable="false" />
+          <Property Type="String" Name="RouteValueDictionary" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ListOrder" Nullable="false" />
+          <Property Type="Boolean" Name="Discontinued" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CommonModelStoreContainer" CdmEntityContainer="CommonEntities">
+          <EntitySetMapping Name="aspnet_ContentItems"><EntityTypeMapping TypeName="CommonModel.aspnet_ContentItems"><MappingFragment StoreEntitySet="aspnet_ContentItems">
+            <ScalarProperty Name="ContentItemId" ColumnName="ContentItemId" />
+            <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="ContentKey" ColumnName="ContentKey" />
+            <ScalarProperty Name="Indexed" ColumnName="Indexed" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Routes">
+            <EntityTypeMapping TypeName="CommonModel.aspnet_Routes">
+              <MappingFragment StoreEntitySet="aspnet_Routes">
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+                <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RouteValueDictionary" ColumnName="RouteValueDictionary" />
+                <ScalarProperty Name="CheckPhysicalUrlAccess" ColumnName="CheckPhysicalUrlAccess" />
+                <ScalarProperty Name="PhysicalFile" ColumnName="PhysicalFile" />
+                <ScalarProperty Name="RouteUrl" ColumnName="RouteUrl" />
+                <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+                <ScalarProperty Name="CultureCode" ColumnName="CultureCode" />
+                <ScalarProperty Name="ContentItemId" ColumnName="ContentItemId" />
+                <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CommonModel">
+        <EntityTypeShape EntityType="CommonModel.aspnet_ContentItems" Width="1.5" PointX="0.5" PointY="0.5" Height="1.9802864583333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="CommonModel.aspnet_Routes" Width="1.5" PointX="2.375" PointY="0.5" Height="3.3263964843749996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShippingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ShippingModelStoreContainer">
+    <EntitySet Name="ShippingCarriers" EntityType="ShippingModel.Store.ShippingCarriers" store:Type="Tables" Schema="Sales" />
+    <EntitySet Name="ShippingMethods" EntityType="ShippingModel.Store.ShippingMethods" store:Type="Tables" Schema="Sales" />
+    <EntitySet Name="ShippingRates" EntityType="ShippingModel.Store.ShippingRates" store:Type="Tables" Schema="Sales" />
+  </EntityContainer>
+  <EntityType Name="ShippingCarriers">
+    <Key>
+      <PropertyRef Name="ShipperCarrier_Id" />
+    </Key>
+    <Property Name="ShipperCarrier_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShipperCarrier_Name" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="ListOrder" Type="int" />
+    <Property Name="Discontinued" Type="bit" />
+  </EntityType>
+  <EntityType Name="ShippingMethods">
+    <Key>
+      <PropertyRef Name="ShipMethod_Id" />
+    </Key>
+    <Property Name="ShipMethod_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShipMethod_Name" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="Discontinued" Type="bit" />
+  </EntityType>
+  <EntityType Name="ShippingRates">
+    <Key>
+      <PropertyRef Name="ShippingRate_Id" />
+    </Key>
+    <Property Name="ShipperCarrier_Id" Type="int" Nullable="false" />
+    <Property Name="ShippingMethod_Id" Type="int" />
+    <Property Name="ShippingRate_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShippingRate_CountryId" Type="int" Nullable="false" />
+    <Property Name="ShippingRate_Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ShippingRate_ZipStart" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="ShippingRate_ZipEnd" Type="varchar" MaxLength="32" />
+    <Property Name="ShippingRate_WeightStart" Type="decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="ShippingRate_WeightEnd" Type="decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="ShippingRate_Value" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_PackageFee" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_VAT" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_CurrencyCode" Type="nchar" Nullable="false" MaxLength="3" />
+    <Property Name="ShippingRate_ListOrder" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

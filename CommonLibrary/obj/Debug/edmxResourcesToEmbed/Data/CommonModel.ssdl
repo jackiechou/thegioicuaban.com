@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CommonModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CommonModelStoreContainer">
+    <EntitySet Name="aspnet_ContentItems" EntityType="CommonModel.Store.aspnet_ContentItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Routes" EntityType="CommonModel.Store.aspnet_Routes" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="aspnet_ContentItems">
+    <Key>
+      <PropertyRef Name="ContentItemId" />
+    </Key>
+    <Property Name="ContentItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ContentTypeId" Type="int" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="ContentKey" Type="nvarchar" MaxLength="250" />
+    <Property Name="Indexed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Routes">
+    <Key>
+      <PropertyRef Name="RouteId" />
+    </Key>
+    <Property Name="PortalId" Type="int" Nullable="false" />
+    <Property Name="ContentItemId" Type="int" Nullable="false" />
+    <Property Name="CultureCode" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="RouteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RouteName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RouteUrl" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="PhysicalFile" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="CheckPhysicalUrlAccess" Type="bit" Nullable="false" />
+    <Property Name="RouteValueDictionary" Type="nvarchar" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="ListOrder" Type="int" Nullable="false" />
+    <Property Name="Discontinued" Type="bit" Nullable="false" />
+  </EntityType>
+</Schema>

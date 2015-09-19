@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VendorModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="VendorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Vendors" EntityType="VendorModel.Vendors" />
+    <EntitySet Name="Vendor_Temp" EntityType="VendorModel.Vendor_Temp" />
+  </EntityContainer>
+  <EntityType Name="Vendors">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="Int32" Nullable="false" />
+    <Property Name="VendorName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="AccountNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Cell" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SupportOnline" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Hotline" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Telephone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Website" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ClickThroughs" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="KeyWords" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Authorized" Type="Boolean" Nullable="false" />
+    <Property Name="CreditRating" Type="Byte" />
+    <Property Name="StoreName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="StoreCompanyName" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="TaxCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LogoFile" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Slogan" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="TermsOfService" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedIP" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="LastModifiedIP" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedByUserId" Type="Guid" />
+    <Property Name="CreatedOnDate" Type="DateTime" />
+    <Property Name="LastModifiedByUserId" Type="Guid" />
+    <Property Name="LastModifiedOnDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Vendor_Temp">
+    <Key>
+      <PropertyRef Name="VendorTempId" />
+    </Key>
+    <Property Type="Int32" Name="VendorTempId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PortalId" Nullable="false" />
+    <Property Type="Int32" Name="CountryId" />
+    <Property Type="String" Name="Category_Code" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VendorName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telephone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CurrencyCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="StoreName" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StoreCompanyName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedOnDate" />
+    <Property Type="Boolean" Name="Authorized" Nullable="false" />
+  </EntityType>
+</Schema>

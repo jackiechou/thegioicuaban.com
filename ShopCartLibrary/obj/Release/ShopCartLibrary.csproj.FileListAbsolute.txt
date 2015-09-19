@@ -1,0 +1,9 @@
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\bin\Release\ShopCartLibrary.dll.config
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\bin\Release\ShopCartLibrary.dll
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\bin\Release\ShopCartLibrary.pdb
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\bin\Release\CommonLibrary.dll
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\bin\Release\CommonLibrary.pdb
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\obj\Release\ShopCartLibrary.csprojResolveAssemblyReference.cache
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\obj\Release\ShopCartLibrary.dll
+D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ShopCartLibrary\obj\Release\ShopCartLibrary.pdb

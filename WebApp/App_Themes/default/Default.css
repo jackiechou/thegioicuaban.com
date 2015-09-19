@@ -1,0 +1,167 @@
+﻿/*body{
+	background-color:#ECF5FB;
+	background-image:url(images/Stage_BG_btm.png);
+	background-position:center bottom;
+	background-repeat:repeat-x;
+	font-family:Tahoma,Verdana,Segoe,sans-serif;
+	font-size:70%;
+	padding-bottom:20px;
+}*/
+.Container
+{
+	margin:auto;
+	min-height:400px;
+	background:#ffffff;
+	max-width:700px;
+	min-width:500px;
+	border:solid 1px #d4d4d4;
+	padding:0 20px 20px 20px;
+}
+
+.ToolBar
+{
+	border:solid 1px #d4d4d4;
+	padding:10px;
+	margin-bottom:20px;
+}
+
+.GridContainer
+{
+	background:#ECF5FB;
+	min-height:300px;
+	border:solid 1px #d4d4d4;
+}
+
+
+.ModalPopupBG
+{
+	background-color: #666699;
+	filter: alpha(opacity=50);
+	opacity: 0.7;
+}
+
+.popup_Container {
+	background-color:#fffeb2;
+	border:2px solid #000000;
+	padding: 0px;
+}
+
+.popupConfirmation
+{
+    top: 10px !important;
+	z-index:10001 !important;
+}
+
+
+.popup_Titlebar {
+	background: url(images/titlebar_bg.jpg);
+	height: 29px;
+}
+
+.popup_Body
+{	
+	font-family:Arial;
+	font-weight:bold;
+	font-size:12px;
+	color:#000000;
+	line-height:5pt;
+	clear:both;	
+	padding:15px;	
+}
+
+.TitlebarLeft 
+{
+	float:left;
+	padding-left:5px;
+	padding-top:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	color:#FFFFFF;
+}
+.TitlebarRight 
+{
+	background:url(images/cross_icon_normal.png);
+	background-position:right;
+	background-repeat:no-repeat;
+	height:15px;
+	width:16px;
+	float:right;
+	cursor:pointer;
+	margin-right:5px;
+	margin-top:5px;
+}
+
+.popup_Buttons
+{
+	margin:10px;
+	text-align:right;
+}
+
+.disabled_button
+{
+    color:#aca899;
+    background-color:#efefef;
+    border:solid 1px #c0c0c0;
+}
+
+/* ===== TAB =============================================*/
+.google .ajax__tab_header 
+{
+	font-size:12px;
+	font-weight:bold;
+    font-family:Arial;
+    padding-left:5px;
+    border-bottom:solid 3px #000000;
+}
+.google .ajax__tab_body 
+{
+    font-family:Arial;
+    font-size:10pt;
+    border:solid 1px #dddddd;
+    border-top:none;        
+} 
+/* Active/Hover States */
+.google .ajax__tab_active .ajax__tab_outer
+{    
+    margin-right:4px;
+	background:url(images/tabs/active-tl.gif) no-repeat left top;    
+}
+.google .ajax__tab_active .ajax__tab_inner
+{
+    margin-left:4px;
+	background:url(images/tabs/active-tr.gif) no-repeat right top;        
+}
+.google .ajax__tab_active .ajax__tab_tab
+{
+	margin-right:4px;	
+	padding:5px 3px;
+	color:#fff;
+	background:#000000;
+	text-decoration:none;
+}
+/* Regular States */
+.google .ajax__tab_outer
+{
+    margin-right:4px;
+	background:url(images/tabs/inactive-tl.gif) no-repeat left top;   	
+}
+.google .ajax__tab_inner
+{
+    margin-left:4px;
+	background:url(images/tabs/inactive-tr.gif) no-repeat right top;  	
+}
+.google .ajax__tab_tab
+{
+	margin-right:4px;
+	padding:5px 3px;
+	color:#000000;
+	background:url(images/tabs/inactive-mid.gif) repeat-x;
+	text-decoration:none;
+}
+
+.tabBody
+{	    
+	line-height:20px;
+	padding:10px;	
+} 

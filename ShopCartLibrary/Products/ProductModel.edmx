@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProductModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ProductModelStoreContainer">
+          <EntitySet Name="Products" EntityType="ProductModel.Store.Products" store:Type="Tables" Schema="Production" />
+        </EntityContainer>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Product_Id" />
+          </Key>
+          <Property Name="Product_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Product_No" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Product_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category_Code" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="CultureCode" Type="nchar" MaxLength="10" />
+          <Property Name="Manufacturer_Id" Type="int" />
+          <Property Name="Vendor_Id" Type="int" />
+          <Property Name="Product_TypeId" Type="int" />
+          <Property Name="Product_Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Alias" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Discount_Id" Type="int" />
+          <Property Name="CurrencyCode" Type="nvarchar" MaxLength="16" />
+          <Property Name="NetPrice" Type="money" />
+          <Property Name="GrossPrice" Type="money" />
+          <Property Name="TaxRateId" Type="int" />
+          <Property Name="UnitsInStock" Type="smallint" />
+          <Property Name="UnitsOnOrder" Type="smallint" />
+          <Property Name="UnitsInAPackage" Type="smallint" />
+          <Property Name="UnitsInBox" Type="smallint" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="20" />
+          <Property Name="Weight" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="UnitOfWeightMeasure" Type="nvarchar" MaxLength="20" />
+          <Property Name="Length" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="Width" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="Height" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="UnitOfDimensionMeasure" Type="nvarchar" MaxLength="20" />
+          <Property Name="Url" Type="varchar" MaxLength="255" />
+          <Property Name="MinPurchaseQty" Type="int" />
+          <Property Name="MaxPurchaseQty" Type="int" />
+          <Property Name="ReorderLevel" Type="int" />
+          <Property Name="Views" Type="int" />
+          <Property Name="PhotoFileName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ThumbnailPhotoFileName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ShortDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="Specification" Type="nvarchar(max)" />
+          <Property Name="Availability" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="PurchaseScope" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warranty" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedOnDate" Type="datetime" />
+          <Property Name="LastModifiedOnDate" Type="datetime" />
+          <Property Name="OnlineTransactionFlag" Type="bit" />
+          <Property Name="InfoStatus" Type="tinyint" />
+          <Property Name="PriceStatus" Type="tinyint" />
+          <Property Name="QtyStatus" Type="tinyint" />
+          <Property Name="Discontinued" Type="tinyint" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ProductEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="ProductModel.Product" />
+        </EntityContainer>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_Id" />
+          </Key>
+          <Property Name="Product_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_No" Type="Guid" Nullable="false" />
+          <Property Name="Product_Code" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Category_Code" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CultureCode" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Manufacturer_Id" Type="Int32" />
+          <Property Name="Vendor_Id" Type="Int32" />
+          <Property Name="Product_TypeId" Type="Int32" />
+          <Property Name="Product_Name" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Alias" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Discount_Id" Type="Int32" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="NetPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GrossPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TaxRateId" Type="Int32" />
+          <Property Name="UnitsInStock" Type="Int16" />
+          <Property Name="UnitsOnOrder" Type="Int16" />
+          <Property Name="UnitsInAPackage" Type="Int16" />
+          <Property Name="UnitsInBox" Type="Int16" />
+          <Property Name="Unit" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Weight" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="UnitOfWeightMeasure" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Length" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Width" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Height" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="UnitOfDimensionMeasure" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Url" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="MinPurchaseQty" Type="Int32" />
+          <Property Name="MaxPurchaseQty" Type="Int32" />
+          <Property Name="ReorderLevel" Type="Int32" />
+          <Property Name="Views" Type="Int32" />
+          <Property Name="PhotoFileName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ThumbnailPhotoFileName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ShortDescription" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Specification" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Availability" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="PurchaseScope" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Warranty" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedOnDate" Type="DateTime" />
+          <Property Name="LastModifiedOnDate" Type="DateTime" />
+          <Property Name="OnlineTransactionFlag" Type="Boolean" />
+          <Property Name="InfoStatus" Type="Byte" />
+          <Property Name="PriceStatus" Type="Byte" />
+          <Property Name="QtyStatus" Type="Byte" />
+          <Property Name="Discontinued" Type="Byte" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductModelStoreContainer" CdmEntityContainer="ProductEntities">
+          <EntitySetMapping Name="Products"><EntityTypeMapping TypeName="ProductModel.Product"><MappingFragment StoreEntitySet="Products">
+            <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+            <ScalarProperty Name="Product_No" ColumnName="Product_No" />
+            <ScalarProperty Name="Product_Code" ColumnName="Product_Code" />
+            <ScalarProperty Name="Category_Code" ColumnName="Category_Code" />
+            <ScalarProperty Name="CultureCode" ColumnName="CultureCode" />
+            <ScalarProperty Name="Manufacturer_Id" ColumnName="Manufacturer_Id" />
+            <ScalarProperty Name="Vendor_Id" ColumnName="Vendor_Id" />
+            <ScalarProperty Name="Product_TypeId" ColumnName="Product_TypeId" />
+            <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+            <ScalarProperty Name="Alias" ColumnName="Alias" />
+            <ScalarProperty Name="Discount_Id" ColumnName="Discount_Id" />
+            <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+            <ScalarProperty Name="NetPrice" ColumnName="NetPrice" />
+            <ScalarProperty Name="GrossPrice" ColumnName="GrossPrice" />
+            <ScalarProperty Name="TaxRateId" ColumnName="TaxRateId" />
+            <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+            <ScalarProperty Name="UnitsOnOrder" ColumnName="UnitsOnOrder" />
+            <ScalarProperty Name="UnitsInAPackage" ColumnName="UnitsInAPackage" />
+            <ScalarProperty Name="UnitsInBox" ColumnName="UnitsInBox" />
+            <ScalarProperty Name="Unit" ColumnName="Unit" />
+            <ScalarProperty Name="Weight" ColumnName="Weight" />
+            <ScalarProperty Name="UnitOfWeightMeasure" ColumnName="UnitOfWeightMeasure" />
+            <ScalarProperty Name="Length" ColumnName="Length" />
+            <ScalarProperty Name="Width" ColumnName="Width" />
+            <ScalarProperty Name="Height" ColumnName="Height" />
+            <ScalarProperty Name="UnitOfDimensionMeasure" ColumnName="UnitOfDimensionMeasure" />
+            <ScalarProperty Name="Url" ColumnName="Url" />
+            <ScalarProperty Name="MinPurchaseQty" ColumnName="MinPurchaseQty" />
+            <ScalarProperty Name="MaxPurchaseQty" ColumnName="MaxPurchaseQty" />
+            <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+            <ScalarProperty Name="Views" ColumnName="Views" />
+            <ScalarProperty Name="PhotoFileName" ColumnName="PhotoFileName" />
+            <ScalarProperty Name="ThumbnailPhotoFileName" ColumnName="ThumbnailPhotoFileName" />
+            <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+            <ScalarProperty Name="Specification" ColumnName="Specification" />
+            <ScalarProperty Name="Availability" ColumnName="Availability" />
+            <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+            <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+            <ScalarProperty Name="PurchaseScope" ColumnName="PurchaseScope" />
+            <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+            <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+            <ScalarProperty Name="LastModifiedOnDate" ColumnName="LastModifiedOnDate" />
+            <ScalarProperty Name="OnlineTransactionFlag" ColumnName="OnlineTransactionFlag" />
+            <ScalarProperty Name="InfoStatus" ColumnName="InfoStatus" />
+            <ScalarProperty Name="PriceStatus" ColumnName="PriceStatus" />
+            <ScalarProperty Name="QtyStatus" ColumnName="QtyStatus" />
+            <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ProductModel" ZoomLevel="59">
+        <EntityTypeShape EntityType="ProductModel.Product" Width="1.5" PointX="0.75" PointY="0.75" Height="10.056946614583332" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

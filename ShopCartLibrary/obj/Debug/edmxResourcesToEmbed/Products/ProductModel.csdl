@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ProductEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Products" EntityType="ProductModel.Product" />
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_No" Type="Guid" Nullable="false" />
+    <Property Name="Product_Code" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Category_Code" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="CultureCode" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Manufacturer_Id" Type="Int32" />
+    <Property Name="Vendor_Id" Type="Int32" />
+    <Property Name="Product_TypeId" Type="Int32" />
+    <Property Name="Product_Name" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Discount_Id" Type="Int32" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="NetPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GrossPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TaxRateId" Type="Int32" />
+    <Property Name="UnitsInStock" Type="Int16" />
+    <Property Name="UnitsOnOrder" Type="Int16" />
+    <Property Name="UnitsInAPackage" Type="Int16" />
+    <Property Name="UnitsInBox" Type="Int16" />
+    <Property Name="Unit" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Weight" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="UnitOfWeightMeasure" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Length" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="Width" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="Height" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="UnitOfDimensionMeasure" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Url" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="MinPurchaseQty" Type="Int32" />
+    <Property Name="MaxPurchaseQty" Type="Int32" />
+    <Property Name="ReorderLevel" Type="Int32" />
+    <Property Name="Views" Type="Int32" />
+    <Property Name="PhotoFileName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ThumbnailPhotoFileName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ShortDescription" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Specification" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Availability" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" />
+    <Property Name="EndDate" Type="DateTime" />
+    <Property Name="PurchaseScope" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Warranty" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOnDate" Type="DateTime" />
+    <Property Name="LastModifiedOnDate" Type="DateTime" />
+    <Property Name="OnlineTransactionFlag" Type="Boolean" />
+    <Property Name="InfoStatus" Type="Byte" />
+    <Property Name="PriceStatus" Type="Byte" />
+    <Property Name="QtyStatus" Type="Byte" />
+    <Property Name="Discontinued" Type="Byte" />
+  </EntityType>
+</Schema>

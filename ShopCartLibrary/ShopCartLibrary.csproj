@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F988AF8F-30C9-4B9D-A450-D200B34396CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShopCartLibrary</RootNamespace>
+    <AssemblyName>ShopCartLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonLibrary\bin\Debug\CommonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Customers\CustomerInfo.cs" />
+    <Compile Include="Customers\Customers.cs" />
+    <Compile Include="Customers\CustomerTypes.cs" />
+    <Compile Include="Manufacturers\ManufacturerCategories.cs" />
+    <Compile Include="Manufacturers\Manufacturers.cs" />
+    <Compile Include="Orders\CartItem.cs" />
+    <Compile Include="Orders\CurrencyClass.cs" />
+    <Compile Include="Orders\CurrencyRate.cs" />
+    <Compile Include="Orders\OrderProducts.cs" />
+    <Compile Include="Orders\Orders.cs" />
+    <Compile Include="Orders\OrderShipment.cs" />
+    <Compile Include="Orders\Order_UserInfos.cs" />
+    <Compile Include="Orders\PaymentMethods.cs" />
+    <Compile Include="Orders\ShoppingCart.cs" />
+    <Compile Include="Orders\TransactionMethods.cs" />
+    <Compile Include="Payment\nganluong.cs" />
+    <Compile Include="Products\ProductController.cs" />
+    <Compile Include="Products\ProductAttributeOptions.cs" />
+    <Compile Include="Products\ProductAttributes.cs" />
+    <Compile Include="Products\ProductCategories.cs" />
+    <Compile Include="Products\ProductDiscounts.cs" />
+    <Compile Include="Products\ProductDocuments.cs" />
+    <Compile Include="Products\ProductInfo.cs" />
+    <Compile Include="Products\ProductFiles.cs" />
+    <Compile Include="Products\ProductHostServers.cs" />
+    <Compile Include="Products\ProductLifeCycles.cs" />
+    <Compile Include="Products\ProductModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductPeriods.cs" />
+    <Compile Include="Products\ProductRanges.cs" />
+    <Compile Include="Products\ProductTypes.cs" />
+    <Compile Include="Products\StatusConst.cs" />
+    <Compile Include="Shippers\ShippingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShippingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Taxes\Taxes.cs" />
+    <Compile Include="Vendors\Contacts.cs" />
+    <Compile Include="Vendors\ContactTypes.cs" />
+    <Compile Include="Vendors\VendorDiscounts.cs" />
+    <Compile Include="Vendors\VendorManufacturerCategories.cs" />
+    <Compile Include="Vendors\VendorManufacturers.cs" />
+    <Compile Include="Vendors\VendorModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VendorModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Vendors\VendorOrderPromotions.cs" />
+    <Compile Include="Vendors\VendorProductCategories.cs" />
+    <Compile Include="Vendors\VendorProductTypes.cs" />
+    <Compile Include="Vendors\Vendors.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EntityDeploy Include="Shippers\ShippingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShippingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Vendors\VendorModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VendorModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Products\ProductModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProductModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShippingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ShippingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ShippingCarriers" EntityType="ShippingModel.ShippingCarrier" />
+    <EntitySet Name="ShippingMethods" EntityType="ShippingModel.ShippingMethod" />
+    <EntitySet Name="ShippingRates" EntityType="ShippingModel.ShippingRate" />
+  </EntityContainer>
+  <EntityType Name="ShippingCarrier">
+    <Key>
+      <PropertyRef Name="ShipperCarrier_Id" />
+    </Key>
+    <Property Name="ShipperCarrier_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipperCarrier_Name" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="ListOrder" Type="Int32" />
+    <Property Name="Discontinued" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ShippingMethod">
+    <Key>
+      <PropertyRef Name="ShipMethod_Id" />
+    </Key>
+    <Property Name="ShipMethod_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipMethod_Name" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <Property Name="Discontinued" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ShippingRate">
+    <Key>
+      <PropertyRef Name="ShippingRate_Id" />
+    </Key>
+    <Property Name="ShipperCarrier_Id" Type="Int32" Nullable="false" />
+    <Property Name="ShippingMethod_Id" Type="Int32" />
+    <Property Name="ShippingRate_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShippingRate_CountryId" Type="Int32" Nullable="false" />
+    <Property Name="ShippingRate_Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ShippingRate_ZipStart" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="ShippingRate_ZipEnd" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="ShippingRate_WeightStart" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="ShippingRate_WeightEnd" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="ShippingRate_Value" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_PackageFee" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_VAT" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ShippingRate_CurrencyCode" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="true" />
+    <Property Name="ShippingRate_ListOrder" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

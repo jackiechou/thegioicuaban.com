@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopCartModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ShopCartModelStoreContainer">
+    <EntitySet Name="Products" EntityType="ShopCartModel.Store.Products" store:Type="Tables" Schema="Production" />
+    <EntitySet Name="Vendors" EntityType="ShopCartModel.Store.Vendors" store:Type="Tables" Schema="Purchasing" />
+  </EntityContainer>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Product_No" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Product_Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Category_Code" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CultureCode" Type="nchar" MaxLength="10" />
+    <Property Name="Manufacturer_Id" Type="int" />
+    <Property Name="Vendor_Id" Type="int" />
+    <Property Name="Product_TypeId" Type="int" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Alias" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Discount_Id" Type="int" />
+    <Property Name="CurrencyCode" Type="nvarchar" MaxLength="16" />
+    <Property Name="NetPrice" Type="money" />
+    <Property Name="GrossPrice" Type="money" />
+    <Property Name="TaxRateId" Type="int" />
+    <Property Name="UnitsInStock" Type="smallint" />
+    <Property Name="UnitsOnOrder" Type="smallint" />
+    <Property Name="UnitsInAPackage" Type="smallint" />
+    <Property Name="UnitsInBox" Type="smallint" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="20" />
+    <Property Name="Weight" Type="decimal" Precision="10" Scale="4" />
+    <Property Name="UnitOfWeightMeasure" Type="nvarchar" MaxLength="20" />
+    <Property Name="Length" Type="decimal" Precision="10" Scale="4" />
+    <Property Name="Width" Type="decimal" Precision="10" Scale="4" />
+    <Property Name="Height" Type="decimal" Precision="10" Scale="4" />
+    <Property Name="UnitOfDimensionMeasure" Type="nvarchar" MaxLength="20" />
+    <Property Name="Url" Type="varchar" MaxLength="255" />
+    <Property Name="MinPurchaseQty" Type="int" />
+    <Property Name="MaxPurchaseQty" Type="int" />
+    <Property Name="ReorderLevel" Type="int" />
+    <Property Name="Views" Type="int" />
+    <Property Name="PhotoFileName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ThumbnailPhotoFileName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShortDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="Specification" Type="nvarchar(max)" />
+    <Property Name="Availability" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="PurchaseScope" Type="nvarchar" MaxLength="50" />
+    <Property Name="Warranty" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreatedOnDate" Type="datetime" />
+    <Property Name="LastModifiedOnDate" Type="datetime" />
+    <Property Name="OnlineTransactionFlag" Type="bit" />
+    <Property Name="InfoStatus" Type="tinyint" />
+    <Property Name="PriceStatus" Type="tinyint" />
+    <Property Name="QtyStatus" Type="tinyint" />
+    <Property Name="Discontinued" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Vendors">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="int" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cell" Type="varchar" MaxLength="50" />
+    <Property Name="SupportOnline" Type="nvarchar" />
+    <Property Name="Hotline" Type="nvarchar" MaxLength="20" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Website" Type="nvarchar" MaxLength="100" />
+    <Property Name="ClickThroughs" Type="money" />
+    <Property Name="KeyWords" Type="nvarchar(max)" />
+    <Property Name="Authorized" Type="bit" Nullable="false" />
+    <Property Name="CreditRating" Type="tinyint" />
+    <Property Name="StoreName" Type="nvarchar" MaxLength="255" />
+    <Property Name="StoreCompanyName" Type="nvarchar" MaxLength="500" />
+    <Property Name="TaxCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="LogoFile" Type="nvarchar" MaxLength="100" />
+    <Property Name="Slogan" Type="nvarchar" MaxLength="250" />
+    <Property Name="TermsOfService" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CreatedIP" Type="varchar" MaxLength="30" />
+    <Property Name="LastModifiedIP" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" />
+    <Property Name="CreatedOnDate" Type="datetime" />
+    <Property Name="LastModifiedByUserId" Type="uniqueidentifier" />
+    <Property Name="LastModifiedOnDate" Type="datetime" />
+  </EntityType>
+</Schema>

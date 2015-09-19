@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShippingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ShippingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ShippingCarriers" EntityType="ShippingModel.ShippingCarrier" />
+    <EntitySet Name="ShippingMethods" EntityType="ShippingModel.ShippingMethod" />
+    <EntitySet Name="ShippingRates" EntityType="ShippingModel.ShippingRate" />
+    <EntitySet Name="aspnet_Countries" EntityType="ShippingModel.aspnet_Countries" />
+  </EntityContainer>
+  <EntityType Name="ShippingCarrier">
+    <Key>
+      <PropertyRef Name="ShippingCarrier_Id" />
+    </Key>
+    <Property Type="Int32" Name="ShippingCarrier_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ShippingCarrier_Name" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ListOrder" />
+    <Property Type="Boolean" Name="Discontinued" />
+  </EntityType>
+  <EntityType Name="ShippingMethod">
+    <Key>
+      <PropertyRef Name="ShippingMethod_Id" />
+    </Key>
+    <Property Type="Int32" Name="ShippingMethod_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ShippingMethod_Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifiedDate" />
+    <Property Type="Boolean" Name="Discontinued" />
+  </EntityType>
+  <EntityType Name="ShippingRate">
+    <Key>
+      <PropertyRef Name="ShippingRate_Id" />
+    </Key>
+    <Property Type="Int32" Name="ShippingCarrier_Id" Nullable="false" />
+    <Property Type="Int32" Name="ShippingMethod_Id" Nullable="false" />
+    <Property Type="Int32" Name="ShippingRate_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ShippingRate_CountryId" Nullable="false" />
+    <Property Type="String" Name="ShippingRate_Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShippingRate_ZipStart" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ShippingRate_ZipEnd" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="ShippingRate_WeightStart" Nullable="false" Precision="10" Scale="3" />
+    <Property Type="Decimal" Name="ShippingRate_WeightEnd" Nullable="false" Precision="10" Scale="3" />
+    <Property Type="Decimal" Name="ShippingRate_Value" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="ShippingRate_PackageFee" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="ShippingRate_VAT" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="ShippingRate_CurrencyCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Type="Int32" Name="ShippingRate_ListOrder" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Type="Int32" Name="CountryId" Nullable="false" />
+    <Property Type="String" Name="CountryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ISO2_Alpha" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ISO3_Alpha" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IANA_Internet" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UN_Vehicle" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IOC_Olympic" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UN_ISO_Numeric" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ITU_Calling" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+</Schema>

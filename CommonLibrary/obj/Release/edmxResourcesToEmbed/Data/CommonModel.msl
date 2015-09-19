@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CommonModelStoreContainer" CdmEntityContainer="CommonEntities">
+    <EntitySetMapping Name="aspnet_ContentItems">
+      <EntityTypeMapping TypeName="CommonModel.aspnet_ContentItems">
+        <MappingFragment StoreEntitySet="aspnet_ContentItems">
+          <ScalarProperty Name="ContentItemId" ColumnName="ContentItemId" />
+          <ScalarProperty Name="ContentTypeId" ColumnName="ContentTypeId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ContentKey" ColumnName="ContentKey" />
+          <ScalarProperty Name="Indexed" ColumnName="Indexed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Routes">
+      <EntityTypeMapping TypeName="CommonModel.aspnet_Routes">
+        <MappingFragment StoreEntitySet="aspnet_Routes">
+          <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+          <ScalarProperty Name="ListOrder" ColumnName="ListOrder" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RouteValueDictionary" ColumnName="RouteValueDictionary" />
+          <ScalarProperty Name="CheckPhysicalUrlAccess" ColumnName="CheckPhysicalUrlAccess" />
+          <ScalarProperty Name="PhysicalFile" ColumnName="PhysicalFile" />
+          <ScalarProperty Name="RouteUrl" ColumnName="RouteUrl" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="CultureCode" ColumnName="CultureCode" />
+          <ScalarProperty Name="ContentItemId" ColumnName="ContentItemId" />
+          <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VendorModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="VendorModelStoreContainer">
+          <EntitySet Name="Vendor_Temp" EntityType="VendorModel.Store.Vendor_Temp" store:Type="Tables" Schema="Purchasing" />
+          <EntitySet Name="Vendors" EntityType="VendorModel.Store.Vendors" store:Type="Tables" Schema="Purchasing" />
+        </EntityContainer>
+        <EntityType Name="Vendor_Temp">
+          <Key>
+            <PropertyRef Name="VendorTempId" />
+          </Key>
+          <Property Name="VendorTempId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PortalId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="Category_Code" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="VendorName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="CurrencyCode" Type="nchar" Nullable="false" MaxLength="3" />
+          <Property Name="StoreName" Type="nvarchar" MaxLength="255" />
+          <Property Name="StoreCompanyName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar" MaxLength="8" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedOnDate" Type="datetime" />
+          <Property Name="Authorized" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vendors">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="int" Nullable="false" />
+          <Property Name="VendorName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell" Type="varchar" MaxLength="50" />
+          <Property Name="SupportOnline" Type="nvarchar" />
+          <Property Name="Hotline" Type="nvarchar" MaxLength="20" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Website" Type="nvarchar" MaxLength="100" />
+          <Property Name="ClickThroughs" Type="money" />
+          <Property Name="KeyWords" Type="nvarchar(max)" />
+          <Property Name="Authorized" Type="bit" Nullable="false" />
+          <Property Name="CreditRating" Type="tinyint" />
+          <Property Name="StoreName" Type="nvarchar" MaxLength="255" />
+          <Property Name="StoreCompanyName" Type="nvarchar" MaxLength="500" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogoFile" Type="nvarchar" MaxLength="100" />
+          <Property Name="Slogan" Type="nvarchar" MaxLength="250" />
+          <Property Name="TermsOfService" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedIP" Type="varchar" MaxLength="30" />
+          <Property Name="LastModifiedIP" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedByUserId" Type="uniqueidentifier" />
+          <Property Name="CreatedOnDate" Type="datetime" />
+          <Property Name="LastModifiedByUserId" Type="uniqueidentifier" />
+          <Property Name="LastModifiedOnDate" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VendorModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="VendorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Vendors" EntityType="VendorModel.Vendors" />
+          <EntitySet Name="Vendor_Temp" EntityType="VendorModel.Vendor_Temp" />
+        </EntityContainer>
+        <EntityType Name="Vendors">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="Int32" Nullable="false" />
+          <Property Name="VendorName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="PostalCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Cell" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SupportOnline" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="Hotline" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Website" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ClickThroughs" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="KeyWords" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Authorized" Type="Boolean" Nullable="false" />
+          <Property Name="CreditRating" Type="Byte" />
+          <Property Name="StoreName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="StoreCompanyName" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LogoFile" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Slogan" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="TermsOfService" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedIP" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="LastModifiedIP" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedByUserId" Type="Guid" />
+          <Property Name="CreatedOnDate" Type="DateTime" />
+          <Property Name="LastModifiedByUserId" Type="Guid" />
+          <Property Name="LastModifiedOnDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Vendor_Temp">
+          <Key>
+            <PropertyRef Name="VendorTempId" />
+          </Key>
+          <Property Type="Int32" Name="VendorTempId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PortalId" Nullable="false" />
+          <Property Type="Int32" Name="CountryId" />
+          <Property Type="String" Name="Category_Code" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VendorName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telephone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CurrencyCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="StoreName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StoreCompanyName" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedOnDate" />
+          <Property Type="Boolean" Name="Authorized" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VendorModelStoreContainer" CdmEntityContainer="VendorEntities">
+          <EntitySetMapping Name="Vendors"><EntityTypeMapping TypeName="VendorModel.Vendors"><MappingFragment StoreEntitySet="Vendors">
+            <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+            <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+            <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+            <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+            <ScalarProperty Name="Cell" ColumnName="Cell" />
+            <ScalarProperty Name="SupportOnline" ColumnName="SupportOnline" />
+            <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+            <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+            <ScalarProperty Name="Fax" ColumnName="Fax" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Website" ColumnName="Website" />
+            <ScalarProperty Name="ClickThroughs" ColumnName="ClickThroughs" />
+            <ScalarProperty Name="KeyWords" ColumnName="KeyWords" />
+            <ScalarProperty Name="Authorized" ColumnName="Authorized" />
+            <ScalarProperty Name="CreditRating" ColumnName="CreditRating" />
+            <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+            <ScalarProperty Name="StoreCompanyName" ColumnName="StoreCompanyName" />
+            <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+            <ScalarProperty Name="LogoFile" ColumnName="LogoFile" />
+            <ScalarProperty Name="Slogan" ColumnName="Slogan" />
+            <ScalarProperty Name="TermsOfService" ColumnName="TermsOfService" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="CreatedIP" ColumnName="CreatedIP" />
+            <ScalarProperty Name="LastModifiedIP" ColumnName="LastModifiedIP" />
+            <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+            <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+            <ScalarProperty Name="LastModifiedByUserId" ColumnName="LastModifiedByUserId" />
+            <ScalarProperty Name="LastModifiedOnDate" ColumnName="LastModifiedOnDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Vendor_Temp">
+            <EntityTypeMapping TypeName="VendorModel.Vendor_Temp">
+              <MappingFragment StoreEntitySet="Vendor_Temp">
+                <ScalarProperty Name="Authorized" ColumnName="Authorized" />
+                <ScalarProperty Name="CreatedOnDate" ColumnName="CreatedOnDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StoreCompanyName" ColumnName="StoreCompanyName" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="Category_Code" ColumnName="Category_Code" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+                <ScalarProperty Name="VendorTempId" ColumnName="VendorTempId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="VendorModel" ZoomLevel="57">
+        <EntityTypeShape EntityType="VendorModel.Vendors" Width="1.5" PointX="0.75" PointY="0.75" Height="6.787822265625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VendorModel.Vendor_Temp" Width="1.5" PointX="3.375" PointY="0.75" Height="4.480205078125" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

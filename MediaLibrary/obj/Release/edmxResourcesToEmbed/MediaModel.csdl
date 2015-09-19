@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MediaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="MediaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Media_Files" EntityType="MediaModel.Media_Files" />
+    <EntitySet Name="Media_Artists" EntityType="MediaModel.Media_Artists" />
+    <EntitySet Name="Media_Composers" EntityType="MediaModel.Media_Composers" />
+    <EntitySet Name="Media_FileRefs" EntityType="MediaModel.Media_FileRefs" />
+    <EntitySet Name="Media_Albums" EntityType="MediaModel.Media_Albums" />
+    <EntitySet Name="Media_PlayLists" EntityType="MediaModel.Media_PlayLists" />
+    <EntitySet Name="Media_Types" EntityType="MediaModel.Media_Types" />
+    <EntitySet Name="Media_Topics" EntityType="MediaModel.Media_Topics" />
+  </EntityContainer>
+  <EntityType Name="Media_Files">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Type="Int32" Name="FileId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FileName" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FileUrl" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Alias" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Lyric" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="AutoStart" />
+    <Property Type="Boolean" Name="MediaLoop" />
+    <Property Type="String" Name="Dimension" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Source" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Photo" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Thumbnail" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ClickThroughs" />
+    <Property Type="Int32" Name="SortKey" />
+    <Property Type="Guid" Name="UserId" />
+    <Property Type="String" Name="IPLog" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="PostedDate" />
+    <Property Type="String" Name="IPLastUpdate" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastUpdatedDate" />
+    <Property Type="String" Name="Status" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Media_Artists">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Type="Int32" Name="ArtistId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ArtistName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Alias" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FrontImage" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MainImage" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ListOrder" />
+    <Property Type="String" Name="IPLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IPLastUpdate" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreatedOnDate" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="Guid" Name="CreatedByUserId" />
+    <Property Type="Guid" Name="LastModifiedByUserId" />
+    <Property Type="String" Name="Status" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Media_Composers">
+    <Key>
+      <PropertyRef Name="ComposerId" />
+    </Key>
+    <Property Type="Int32" Name="ComposerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ComposerName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Alias" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FrontImage" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MainImage" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ListOrder" />
+    <Property Type="String" Name="IPLog" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IPModifiedLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreatedOnDate" />
+    <Property Type="DateTime" Name="LastModifiedOnDate" />
+    <Property Type="Guid" Name="CreatedByUserId" />
+    <Property Type="Guid" Name="LastModifiedByUserId" />
+    <Property Type="String" Name="Status" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Media_FileRefs">
+    <Key>
+      <PropertyRef Name="FileRefId" />
+    </Key>
+    <Property Type="Int32" Name="FileRefId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="FileId" />
+    <Property Type="Int32" Name="AlbumId" />
+    <Property Type="Int32" Name="ArtistId" />
+    <Property Type="Int32" Name="ComposerId" />
+    <Property Type="Int32" Name="PlayListId" />
+    <Property Type="Int32" Name="TopicId" />
+    <Property Type="Int32" Name="TypeId" />
+    <Property Type="Int32" Name="VendorId" />
+  </EntityType>
+  <EntityType Name="Media_Albums">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Type="Int32" Name="TypeId" Nullable="false" />
+    <Property Type="Int32" Name="AlbumId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AlbumName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Alias" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FrontImage" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MainImage" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="TotalViews" />
+    <Property Type="Int32" Name="SortKey" />
+    <Property Type="String" Name="IPLog" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IPLastUpdate" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreatedOnDate" />
+    <Property Type="DateTime" Name="LastModifiedOnDate" />
+    <Property Type="Guid" Name="CreatedByUserId" />
+    <Property Type="Guid" Name="LastModifiedByUserId" />
+    <Property Type="String" Name="Status" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Media_PlayLists">
+    <Key>
+      <PropertyRef Name="PlayListId" />
+    </Key>
+    <Property Type="Int32" Name="TypeId" Nullable="false" />
+    <Property Type="Int32" Name="PlayListId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PlayListName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Alias" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FrontImage" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MainImage" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="TotalViews" />
+    <Property Type="Int32" Name="SortOrder" />
+    <Property Type="String" Name="IPLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IPModifiedLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreatedOnDate" />
+    <Property Type="DateTime" Name="LastModifiedOnDate" />
+    <Property Type="Guid" Name="CreatedByUserId" />
+    <Property Type="Guid" Name="LastModifiedByUserId" />
+    <Property Type="String" Name="Status" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Media_Types">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Type="Int32" Name="TypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TypeExt" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TypePath" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ListOrder" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Status" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="CreatedOnDate" />
+    <Property Type="DateTime" Name="ModifiedDate" />
+    <Property Type="String" Name="IPLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IPModifiedLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Guid" Name="CreatedByUserId" />
+    <Property Type="Guid" Name="LastModifiedByUserId" />
+  </EntityType>
+  <EntityType Name="Media_Topics">
+    <Key>
+      <PropertyRef Name="TopicId" />
+    </Key>
+    <Property Type="Int32" Name="TopicId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="TypeId" />
+    <Property Type="Int32" Name="ParentId" />
+    <Property Type="Int32" Name="ListOrder" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Alias" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Photo" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedOnDate" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="String" Name="IPLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IPModifiedLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Guid" Name="CreatedByUserId" />
+    <Property Type="Guid" Name="LastModifiedByUserId" />
+    <Property Type="String" Name="Status" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MediaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MediaModelStoreContainer">
+    <EntitySet Name="Media_Albums" EntityType="MediaModel.Store.Media_Albums" store:Type="Tables" Schema="Media" />
+    <EntitySet Name="Media_Artists" EntityType="MediaModel.Store.Media_Artists" store:Type="Tables" Schema="Media" />
+    <EntitySet Name="Media_Composers" EntityType="MediaModel.Store.Media_Composers" store:Type="Tables" Schema="Media" />
+    <EntitySet Name="Media_FileRefs" EntityType="MediaModel.Store.Media_FileRefs" store:Type="Tables" Schema="Media" />
+    <EntitySet Name="Media_Files" EntityType="MediaModel.Store.Media_Files" store:Type="Tables" Schema="Media" />
+    <EntitySet Name="Media_PlayLists" EntityType="MediaModel.Store.Media_PlayLists" store:Type="Tables" Schema="Media" />
+    <EntitySet Name="Media_Topics" EntityType="MediaModel.Store.Media_Topics" store:Type="Tables" Schema="Media" />
+    <EntitySet Name="Media_Types" EntityType="MediaModel.Store.Media_Types" store:Type="Tables" Schema="Media" />
+  </EntityContainer>
+  <EntityType Name="Media_Albums">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="TypeId" Type="int" Nullable="false" />
+    <Property Name="AlbumId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AlbumName" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="Alias" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="FrontImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="MainImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="TotalViews" Type="int" />
+    <Property Name="SortKey" Type="int" />
+    <Property Name="IPLog" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="IPLastUpdate" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedOnDate" Type="datetime" />
+    <Property Name="LastModifiedOnDate" Type="datetime" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" />
+    <Property Name="LastModifiedByUserId" Type="uniqueidentifier" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Media_Artists">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Name="ArtistId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ArtistName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="255" />
+    <Property Name="FrontImage" Type="nvarchar" MaxLength="255" />
+    <Property Name="MainImage" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ListOrder" Type="int" />
+    <Property Name="IPLog" Type="varchar" MaxLength="30" />
+    <Property Name="IPLastUpdate" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedOnDate" Type="datetime" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" />
+    <Property Name="LastModifiedByUserId" Type="uniqueidentifier" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Media_Composers">
+    <Key>
+      <PropertyRef Name="ComposerId" />
+    </Key>
+    <Property Name="ComposerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ComposerName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="250" />
+    <Property Name="FrontImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="MainImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="ListOrder" Type="int" />
+    <Property Name="IPLog" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="IPModifiedLog" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedOnDate" Type="datetime" />
+    <Property Name="LastModifiedOnDate" Type="datetime" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" />
+    <Property Name="LastModifiedByUserId" Type="uniqueidentifier" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Media_FileRefs">
+    <Key>
+      <PropertyRef Name="FileRefId" />
+    </Key>
+    <Property Name="FileRefId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FileId" Type="int" />
+    <Property Name="AlbumId" Type="int" />
+    <Property Name="ArtistId" Type="int" />
+    <Property Name="ComposerId" Type="int" />
+    <Property Name="PlayListId" Type="int" />
+    <Property Name="TopicId" Type="int" />
+    <Property Name="TypeId" Type="int" />
+    <Property Name="VendorId" Type="int" />
+  </EntityType>
+  <EntityType Name="Media_Files">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="400" />
+    <Property Name="FileUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="400" />
+    <Property Name="Lyric" Type="nvarchar(max)" />
+    <Property Name="AutoStart" Type="bit" />
+    <Property Name="MediaLoop" Type="bit" />
+    <Property Name="Dimension" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Source" Type="nvarchar" MaxLength="250" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="250" />
+    <Property Name="Thumbnail" Type="nvarchar" MaxLength="250" />
+    <Property Name="ClickThroughs" Type="int" />
+    <Property Name="SortKey" Type="int" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="IPLog" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="PostedDate" Type="datetime" />
+    <Property Name="IPLastUpdate" Type="varchar" MaxLength="30" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Media_PlayLists">
+    <Key>
+      <PropertyRef Name="PlayListId" />
+    </Key>
+    <Property Name="TypeId" Type="int" Nullable="false" />
+    <Property Name="PlayListId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PlayListName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="250" />
+    <Property Name="FrontImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="MainImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="TotalViews" Type="int" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="IPLog" Type="varchar" MaxLength="30" />
+    <Property Name="IPModifiedLog" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedOnDate" Type="datetime" />
+    <Property Name="LastModifiedOnDate" Type="datetime" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" />
+    <Property Name="LastModifiedByUserId" Type="uniqueidentifier" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Media_Topics">
+    <Key>
+      <PropertyRef Name="TopicId" />
+    </Key>
+    <Property Name="TopicId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TypeId" Type="int" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="ListOrder" Type="int" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedOnDate" Type="datetime" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="IPLog" Type="varchar" MaxLength="30" />
+    <Property Name="IPModifiedLog" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" />
+    <Property Name="LastModifiedByUserId" Type="uniqueidentifier" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Media_Types">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="TypeExt" Type="nvarchar" MaxLength="100" />
+    <Property Name="TypePath" Type="nvarchar" />
+    <Property Name="ListOrder" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="CreatedOnDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IPLog" Type="varchar" MaxLength="30" />
+    <Property Name="IPModifiedLog" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedByUserId" Type="uniqueidentifier" />
+    <Property Name="LastModifiedByUserId" Type="uniqueidentifier" />
+  </EntityType>
+</Schema>

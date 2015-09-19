@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="5eagle_VBA" Class="GalleryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=23.91.114.136;Initial Catalog=5eagle_VBA;Persist Security Info=True;User ID=VBA_USER" SettingsObjectName="GalleryLibrary.Properties.Settings" SettingsPropertyName="_5eagle_VBAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Gallery.Gallery_Files" Member="Gallery_Files">
+    <Type Name="Gallery_File">
+      <Column Name="FileId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FileUrl" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ListOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tags" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifieddDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserLog" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserLastUpdate" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IPLog" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="IPLastUpdate" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Gallery.Gallery_Topics" Member="Gallery_Topics">
+    <Type Name="Gallery_Topic">
+      <Column Name="Gallery_TopicId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Gallery_TopicName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Alias" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Depth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Lineage" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="PostedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserLog" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserLastUpdate" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IPLog" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="IPLastUpdate" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Gallery.Gallery_Collection_Files" Member="Gallery_Collection_Files">
+    <Type Name="Gallery_Collection_File">
+      <Column Name="CollectionFileId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CollectionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FileId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Gallery.Gallery_Collections" Member="Gallery_Collections">
+    <Type Name="Gallery_Collection">
+      <Column Name="TopicId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CollectionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="IconFile" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ListOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tags" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifieddDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserLog" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserLastUpdate" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IPLog" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="IPLastUpdate" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="Gallery.Gallery_Topics_Insert" Method="Gallery_Topics_Insert">
+    <Parameter Name="userid" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ip" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="alias" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="parentid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="status" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="o_return" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Gallery.Gallery_Topics_Update" Method="Gallery_Topics_Update">
+    <Parameter Name="userid" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ip" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="idx" Type="System.Int32" DbType="Int" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="alias" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="parentid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="status" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="o_return" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
