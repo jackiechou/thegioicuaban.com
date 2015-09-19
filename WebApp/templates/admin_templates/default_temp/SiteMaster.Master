@@ -1,0 +1,158 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="WebApp.templates.admin_templates.default_temp.SiteMaster" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Src="~/modules/menu/horizontal_menu.ascx" TagName="horizontal_menu" TagPrefix="uc" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>5EAGLES</title>
+    <link rel="icon" href="http://www.5eagles.com.vn/5eagles_icon.ico" type="image/x-icon" />    
+    <link rel="shortcut icon" href="http://www.5eagles.com.vn/5eagles_icon.ico"/>    
+    <link rel="stylesheet"  type="text/css" media="screen" href="styles/main.css"/>     
+  
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="no-cache" http-equiv="Cache-Control"/>
+    <meta content="no-cache" http-equiv="Pragma"/>
+    <meta content="blendtrans(duration=0.1)" http-equiv="page-enter"/>
+    <meta content="blendtrans(duration=0.4)" http-equiv="page-exit"/>
+    <meta content='IE=7' http-equiv='X-UA-Compatible'/>
+    <meta name="GENERATOR" content="MSHTML 8.00.6001.18939"/>        
+    <link type="image/x-icon" rel="shortcut icon" href="/templates/admin_templates/default_temp/images/favicon.ico"/>
+    <%--<link rel="icon" href="/portals/vass/templates/images/animated_favicon.gif" type="image/gif" >--%>  
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript" src="../../../scripts/jquery/jquery.min.js"></script>    
+    <script type="text/javascript" src="../../../scripts/js/login_middle.js"></script>
+    <script type="text/javascript" src="../../../scripts/js/curvycorners.js"></script>
+   
+     <script type="text/javascript">
+         jQuery.noConflict();
+         jQuery(document).ready(function () {
+             ///// SHOW/HIDE USERDATA WHEN USERINFO IS CLICKED => UserInfo Popup Inline ///// 
+             jQuery('.userinfo').click(function () {
+                 if (!jQuery(this).hasClass('active')) {
+                     jQuery('.userinfodrop').show();
+                     jQuery(this).addClass('active');
+                 } else {
+                     jQuery('.userinfodrop').hide();
+                     jQuery(this).removeClass('active');
+                 }
+                 return false;
+             });
+         });
+        
+        //===========================================================================================================================================================================================================================
+        function showhideLM(a, id) {
+            document.getElementById(id).style.display = (document.getElementById(id).style.display == 'none') ? 'block' : 'none';
+            a.innerHTML = (document.getElementById(id).style.display == 'none') ? '<img alt="Show Menu" border=0 src="../../images/showmenubar.gif">' : '<img alt="Hide Menu" border="0" src="../../images/hidemenubar.gif">';
+        }
+
+        function showhideFilter(a, id) {
+            document.getElementById(id).style.display = (document.getElementById(id).style.display == 'none') ? 'block' : 'none';
+            a.innerHTML = (document.getElementById(id).style.display == 'none') ? '<img border="0" width="16" height="16" src="../../images/icon_filter.gif"> Show Filter' : '<img border="0" width="16" height="16" src="../../images/icon_filter.gif"> Hide Filter';
+        }
+
+        function ExpandCollapse(a, id) {
+            document.getElementById(id).style.display = (document.getElementById(id).style.display == 'none') ? 'block' : 'none';
+            a.innerHTML = (document.getElementById(id).style.display == 'none') ? '<img alt="Show Details" title="Show Details" border="0" width="16" height="16" src="../../images/icon_expand.gif">' : '<img alt="Hide Details" title="Hide Details" border="0" width="16" height="16" src="../../images/icon_collapse.gif">';
+        }
+
+        //========================================================================================================
+        function ShowUserProfileModal(username) {            
+            var frame = $get('IframeUserProfile');
+            var edit_path = "modules/admin/security/users/aspnet_userprofile_edit.aspx?mode=edit&username=";
+            var frame = $get('IframeUserProfile');
+            frame.src = edit_path + username;
+            $find('UserProfileModalPopup').show();
+        }
+
+
+        function UserProfileCancelScript() {
+            var frame = $get('IframeUserProfile');
+            frame.src = "loading.aspx";
+        }
+
+        function UserProfileOkayScript() {
+            var frame = $get('IframeUserProfile');
+            frame.src = "loading.aspx";
+        } 
+
+    </script>    
+</head>
+<body>
+    <form id="form1" runat="server" enctype="multipart/form-data">      
+    <script type="text/javascript" src="../../../scripts/js/wz_tooltip.js"></script>
+    <div class="wrap_full">
+        <div class="wrap">
+            <div class="wrap_inner">
+             <div class="header_container">
+                    <div class="header">
+                        <div class="heading_text fleft">HỆ THỐNG QUẢN TRỊ</div>                      
+                        <div class="user_info right"> 
+                            <asp:Literal ID="Literal_Head" runat="server"></asp:Literal>                                     
+                         </div>                  
+                    </div>
+                    <div class="clearboth"></div>
+                    <!---->
+                    <div class="nar_bar">
+                        <div class="tab">
+                            <uc:horizontal_menu ID="horizontal_menu_control" runat="server" />
+                        </div>
+                    </div>                   
+                    <div class="clearboth"></div>
+                </div>
+                <div class="clearboth"></div>
+                <!-- END HEADER -->            
+            <!---->
+                <div class="main">  
+                    <div class="paneshell">
+                        <div class="shell_content">
+                            <div class="shell_content_inner">                                                        
+                                    <!-- CONTENT -->    
+                                       <asp:contentplaceholder id="MainContent" runat="server">                                      
+                                       </asp:contentplaceholder> 
+                                   <!-- END CONTENT -->
+                                   <div style="clear:both"></div>
+                                    <asp:HiddenField ID="HiddenFieldUserId" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearboth"></div>
+                <div class="footer">
+                    <div class="bottom_info"><!-- footer -->               
+                        5eagles.com.vn
+                    </div>
+                    <div class="gototop">
+                        <a href="javascript:scroll(0,0);">
+                            <img src='<%# Request.Url.Host.ToString() %>/images/icons/arrow_top.png' alt="Go to top" border="0" title="Go to top"/>
+                        </a>
+                    </div>   
+                </div>
+                <div class="clearboth"></div>
+                
+            </div>
+        </div>
+    </div>     
+     
+     <%----------------------------- ModalPopupExtender_UserProfile -------------------------------------%>    
+        <asp:Button ID="ButtonUserProfile" runat="server" Text="UserProfile" style="display:none" />
+        <ajaxToolkit:ModalPopupExtender ID="btnUserProfile_ModalPopupExtender" BackgroundCssClass="ModalPopupBG"
+                runat="server" CancelControlID="ButtonUserProfileCancel" OkControlID="ButtonUserProfileDone" 
+                TargetControlID="ButtonUserProfile" PopupControlID="DivUserProfileWindow" 
+                OnCancelScript="UserProfileCancelScript();" OnOkScript="UserProfileOkayScript();" 
+                BehaviorID="UserProfileModalPopup">
+            </ajaxToolkit:ModalPopupExtender>
+        <div class="popup_Buttons" style="display: none">
+            <input id="ButtonUserProfileDone" value="Done" type="button" />
+            <input id="ButtonUserProfileCancel" value="Cancel" type="button" />
+        </div>
+        <div id="DivUserProfileWindow" style="display: none;" class="popupConfirmation">
+            <iframe id="IframeUserProfile" frameborder="0" width="800" height="500" scrolling="no">
+            </iframe>
+        </div>  
+    </form>
+</body>
+</html>

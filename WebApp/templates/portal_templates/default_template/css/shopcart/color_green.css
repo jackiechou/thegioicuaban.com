@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* CSS Document */
+
+.green a{ color: #3b4600; text-decoration: none; }  
+
+.green a:hover{ text-decoration: none; color:#74890b; 	
+   background-image: url(.../../images/icon_circle.gif);
+	background-repeat: no-repeat;
+	background-position: 2% 100%;
+	padding-left: 20px;
+    padding-bottom: 3px;      }  
+
+.green .next-tab {
+	background: url('../../images/shopcart/common/green/arrow_next.jpg') no-repeat center left;
+}
+
+.green .prev-tab {
+	background: url('../../images/shopcart/common/green/arrow_previous.jpg') no-repeat center right;
+}
+
+.green header .header_top .nav_login nav a {
+	background:	url('../../images/shopcart/common/green/bg_menuitem_mlogin.png') repeat-x center left;
+	border:1px solid #e9e9e9;
+}
+
+.green header .header_main{
+	background:url('../../images/shopcart/common/green/bg_header.png') repeat-x bottom left;
+}
+
+.green header .header_main .nav_main nav{
+	background:url('../../images/shopcart/common/green/bg_line.png') repeat-x bottom left;	
+}
+
+.green header .header_main .searchbox input[type=submit]{
+	background: url('../../images/shopcart/common/green/btn_search.png') no-repeat 0% -2px;
+}
+
+.green header .header_main .searchbox input[type=submit]:hover{
+	background: url('../../images/shopcart/common/green/btn_search.png') no-repeat 0% -24px;
+}
+
+.green .wrap_content .col1 h3{
+	background: url('../../images/shopcart/common/green/bg_titlebox.png') repeat-x 0% 0%;
+}
+
+.green .wrap_content .col1 .box_category ul li a{
+	background: url('../../images/shopcart/common/green/bg_menuleft_item.png') no-repeat center left;
+}
+
+/*===================topvendors*/
+.page2cols .wrap_content .col2 .topvendors h3{
+	background: url('../../images/shopcart/common/green/bg_titlebox.png') repeat 0% 0%;
+}
+/*===================newestproducts*/
+.page2cols .wrap_content .col2 .newestproducts h3{
+	border-bottom:1px solid #74890b;
+}
+
+.page2cols .wrap_content .col2 .newestproducts .ui-tabs .ui-tabs-nav li
+{
+	background: url('../../images/shopcart/common/green/bg_titlebox.png') repeat 0% 0%;
+	border: 1px solid #74890b;
+	color:#FFFFFF;
+}
+
+.page2cols .wrap_content .col2 .newestproducts .ui-tabs .ui-tabs-nav li:hover,.page2cols .wrap_content .col2 .newestproducts .ui-tabs .ui-tabs-nav .ui-state-active
+{
+	background: url('../../images/shopcart/common/green/bg_titlebox_over.png') repeat 0% 0%;
+}
+
+.page2cols .wrap_content .col2 .newestproducts .ui-tabs .ui-tabs-nav li a
+{	
+	color:#FFFFFF;
+}
+
+.page2cols .wrap_content .col2 .newestproducts .ui-tabs .ui-tabs-nav li a:hover,.page2cols .wrap_content .col2 .newestproducts .ui-tabs .ui-tabs-nav .ui-state-active a
+{	
+	color:#000000;
+}
+
+/*==================vuong que*/
+
+.green .wrap_content .col1 .listproduct_type1 h3{
+	background:none !important;
+}
+
+.page2cols .wrap_content .col2 .listproduct_type1 .ui-tabs .ui-tabs-nav li:hover,.page2cols .wrap_content .col2 .listproduct_type1 .ui-tabs .ui-tabs-nav .ui-state-active
+{
+	background: #74890b;
+}
+
+
+
+
+

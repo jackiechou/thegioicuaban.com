@@ -1,0 +1,79 @@
+/* root element for scrollable */
+.scrollable 
+{
+       position:relative;
+}
+.vertical {
+
+    /* required settings */
+    position:relative;
+    overflow:hidden;
+
+    /* vertical scrollers have typically larger height than width */
+    height: 365px;
+    width: 290px;
+    margin-left:4px;
+}
+
+/* root element for scrollable items */
+.scrollable .items {
+    /* this time we have very large space for height*/
+    height:1200px;
+    margin: 0px;
+    position:absolute;
+}
+
+/* single scrollable item */
+.scrollable .item {    
+    margin:5px 5px 10px;
+    padding:3px;
+    font-size:12px;
+    height:100px;
+    width:290px;
+}
+
+/* elements inside single item */
+.scrollable .item img {
+    float:left;    
+    height:90px;
+    width:  120px;
+}
+/* elements inside single item */
+.col_even, col_odd
+{
+    padding:1px solid #CCCCCC !important;    
+}
+
+.scrollable .col_odd img {
+    margin-right:10px;
+}
+.scrollable .item h3 {
+    margin:0 0 5px 0;
+    font-size:16px;
+    color:#456;
+    font-weight:normal;
+}
+
+/* the action buttons above the scrollable */
+#actions {
+    margin: 0 0 10px;
+    width: 40px;
+}
+#actions a {
+    font-size:11px;
+    cursor:pointer;
+    color:#666;
+}
+
+#actions a:hover {
+    text-decoration:underline;
+    color:#000;
+}
+
+.disabled {
+    visibility:hidden;
+}
+
+.next {
+    float:right;
+}

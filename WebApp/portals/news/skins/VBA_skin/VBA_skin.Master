@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VBA_skin.master.cs" Inherits="WebApp.portals.news.skins.VBA_skin.VBA_skin" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Src="~/portals/news/controls/uc_header_menu.ascx" TagName="uc_header_menu" TagPrefix="uc" %>
+
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+    <title>Hội Doanh Nghiệp</title> 
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />    
+    <link rel="shortcut icon" href="images/favicon.ico"/> 
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>   
+    <script type="text/javascript" src="/portals/news/skins/VBA_skin/js/general.js"></script>      
+    <script type="text/javascript" src="/portals/news/skins/VBA_skin/js/common.js"></script>                               
+    <script type="text/javascript" src="/scripts/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/scripts/plugins/jcarousel/jsCarousel.2.0.js"></script>              
+    <script type="text/javascript" src="/scripts/plugins/banner_rotator/jquery.banner-rotator.js"></script>        
+    <script type="text/javascript" src="/scripts/plugins/banner_rotator/preview.js"></script>      
+    <script type="text/javascript" src="/scripts/plugins/menu_sooperfish/lib/jquery.easing-sooper.js"></script>
+    <script type="text/javascript" src="/scripts/plugins/menu_sooperfish/lib/jquery.sooperfish.js"></script>
+
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="page2cols">
+<form id="form1" runat="server" enctype="multipart/form-data">
+<asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
+<div class="adv_right" id="adv_right" runat="server"><a href="#" >Right Ads</a></div>
+<div class="adv_left" id="adv_left" runat="server"><a href="#" >Left Ads</a></div>
+<div class="wrap1">
+	<div class="wrap_content">    
+    <header>
+            <div class="header_top">     
+                 <uc:uc_header_menu ID="menu_control" runat="server" />               
+            	 <div id="pagehead-bg">
+                    <div id="pagehead" class="pagehead">
+                        <div id="masthead">                           
+                                <!--Banner Rotator - Start-->
+                                <div class="banner">
+                                    <div class="screen">
+                                        <noscript>
+                                            <!--Placeholder Image When Javascript is Off-->
+                                            <img src="/scripts/plugins/banner_rotator/images/bg/background.jpg" alt="" />
+                                        </noscript>
+                                    </div>
+                                    <div class="cpanel">
+                                        <div class="items">
+                                            <asp:Literal ID="Literal_TopBanner" runat="server"></asp:Literal>
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="previous-btn"></div>
+                                            <div class="play-btn"></div>   
+                                            <div class="next-btn"></div>              
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Banner Rotator - End-->                                                       
+                            <div class="cont-width">
+                               <asp:Literal ID="ltrLogo" runat="server"></asp:Literal>
+                                <div class="float-right">                               
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>   
+            </div>           
+        </header> 
+        <div class="main"> 
+            <div class="newsticker_wrapper">  
+                <div class="newsticker_title"><h4>Tin nóng & Sự kiện nổi bật</h4></div>
+                <div class="newsticker_scroller" id="newsticker_scroller" runat="server">                   
+                </div>
+                 <div class="newsticker_controls">
+                    <ul>
+                        <li class="previous"></li>
+                        <li class="pause"></li>
+                        <li class="next"></li>
+                    </ul>
+                </div>
+                <div class="searchFieldset">               
+                    <asp:TextBox ID="txtSearch" placeholder="Tìm kiếm" CssClass="searchInput" runat="server"></asp:TextBox>
+                    <input type="submit" value="" class="searchButtom" />                 
+                </div>
+            </div>    
+          
+            <div class="main_content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">        
+                </asp:ContentPlaceHolder>  
+            </div> 
+            <div class="clear"></div>      
+            
+        </div>
+        <footer>
+             <div id="footer-logos">
+                <div id="carouselSider" runat="server"></div>                
+             </div>
+             <div class="linklist footer-info">         
+                  <div> <a target="_blank"><asp:Literal ID="ltrVendorName" runat="server"></asp:Literal></a></div> 
+                  <div class="OnlineUsers"> Số người đang online: <%= Application["OnlineUsers"].ToString()%>  </div>                                                                                                                          
+             </div>        
+                <div class="copyright footer-info">
+                    Copyright © 2015-2022 5eagles.com.vn
+                </div>
+                <div class="clear"></div>          
+        </footer> 
+    </div>
+</div>  
+</form>      
+</body>
+</html>

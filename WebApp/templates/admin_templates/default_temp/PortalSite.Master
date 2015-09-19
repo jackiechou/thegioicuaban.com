@@ -1,0 +1,532 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PortalSite.master.cs" Inherits="WebApp.templates.admin_templates.default_temp.PortalSite" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+      <title>5EAGLES</title>
+    <link rel="icon" href="http://www.5eagles.com.vn/5eagles_icon.ico" type="image/x-icon" />    
+    <link rel="shortcut icon" href="http://www.5eagles.com.vn/5eagles_icon.ico"/>    
+    <link rel="stylesheet"  type="text/css" media="screen" href="styles/portal_styles.css"/>     
+  
+    <asp:ContentPlaceHolder id="head" runat="server">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+        <meta content="no-cache" http-equiv="Cache-Control"/>
+        <meta content="no-cache" http-equiv="Pragma"/>
+        <meta content="blendtrans(duration=0.1)" http-equiv="page-enter"/>
+        <meta content="blendtrans(duration=0.4)" http-equiv="page-exit"/>
+        <meta content='IE=7' http-equiv='X-UA-Compatible'/>
+        <meta name="GENERATOR" content="MSHTML 8.00.6001.18939"/>        
+        <link type="image/x-icon" rel="shortcut icon" href="/templates/admin_templates/default_temp/images/favicon.ico"/>
+        <%--<link rel="icon" href="/portals/vass/templates/images/animated_favicon.gif" type="image/gif" >--%>       
+
+    </asp:ContentPlaceHolder>
+   <script src="../../../scripts/jquery/jquery.min.js" type="text/javascript"></script>
+   <script src="../../../scripts/jquery/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script>
+
+     <script type="text/javascript">
+         jQuery.noConflict();
+         jQuery(document).ready(function () {
+
+             ///// SHOW/HIDE USERDATA WHEN USERINFO IS CLICKED ///// 
+             jQuery('.userinfo').click(function () {
+                 if (!jQuery(this).hasClass('active')) {
+                     jQuery('.userinfodrop').show();
+                     jQuery(this).addClass('active');
+                 } else {
+                     jQuery('.userinfodrop').hide();
+                     jQuery(this).removeClass('active');
+                 }
+                 return false;
+             });
+
+
+             ///// SHOW/HIDE NOTIFICATION /////
+
+             jQuery('.notification a').click(function () {
+                 var t = jQuery(this);
+                 var url = t.attr('href');
+                 if (!jQuery('.noticontent').is(':visible')) {
+                     jQuery.post(url, function (data) {
+                         t.parent().append('<div class="noticontent">' + data + '</div>');
+                     });
+                     //this will hide user info drop down when visible
+                     jQuery('.userinfo').removeClass('active');
+                     jQuery('.userinfodrop').hide();
+                 } else {
+                     t.parent().removeClass('active');
+                     jQuery('.noticontent').hide();
+                 }
+                 return false;
+             });
+
+
+             ///// SHOW/HIDE BOTH NOTIFICATION & USERINFO WHEN CLICKED OUTSIDE OF THIS ELEMENT /////
+             jQuery(document).click(function (event) {
+                 var ud = jQuery('.userinfodrop');
+                 var nb = jQuery('.noticontent');
+
+                 //hide user drop menu when clicked outside of this element
+                 if (!jQuery(event.target).is('.userinfodrop')
+			&& !jQuery(event.target).is('.userdata')
+			&& ud.is(':visible')) {
+                     ud.hide();
+                     jQuery('.userinfo').removeClass('active');
+                 }
+
+                 //hide notification box when clicked outside of this element
+                 if (!jQuery(event.target).is('.noticontent') && nb.is(':visible')) {
+                     nb.remove();
+                     jQuery('.notification').removeClass('active');
+                 }
+             });
+
+             ///// NOTIFICATION CONTENT /////
+
+             jQuery('.notitab a').live('click', function () {
+                 var id = jQuery(this).attr('href');
+                 jQuery('.notitab li').removeClass('current'); //reset current 
+                 jQuery(this).parent().addClass('current');
+                 if (id == '#messages')
+                     jQuery('#activities').hide();
+                 else
+                     jQuery('#messages').hide();
+
+                 jQuery(id).show();
+                 return false;
+             });
+
+
+
+             ///// SHOW/HIDE VERTICAL SUB MENU /////	
+
+             jQuery('.vernav > ul li a, .vernav2 > ul li a').each(function () {
+                 var url = jQuery(this).attr('href');
+                 jQuery(this).click(function () {
+                     if (jQuery(url).length > 0) {
+                         if (jQuery(url).is(':visible')) {
+                             if (!jQuery(this).parents('div').hasClass('menucoll') &&
+					   !jQuery(this).parents('div').hasClass('menucoll2'))
+                                 jQuery(url).slideUp();
+                         } else {
+                             jQuery('.vernav ul ul, .vernav2 ul ul').each(function () {
+                                 jQuery(this).slideUp();
+                             });
+                             if (!jQuery(this).parents('div').hasClass('menucoll') &&
+					   !jQuery(this).parents('div').hasClass('menucoll2'))
+                                 jQuery(url).slideDown();
+                         }
+                         return false;
+                     }
+                 });
+             });
+
+
+             ///// SHOW/HIDE SUB MENU WHEN MENU COLLAPSED /////
+             jQuery('.menucoll > ul > li, .menucoll2 > ul > li').live('mouseenter mouseleave', function (e) {
+                 if (e.type == 'mouseenter') {
+                     jQuery(this).addClass('hover');
+                     jQuery(this).find('ul').show();
+                 } else {
+                     jQuery(this).removeClass('hover').find('ul').hide();
+                 }
+             });
+
+
+             ///// HORIZONTAL NAVIGATION (AJAX/INLINE DATA) /////	
+
+             jQuery('.hornav a').click(function () {
+
+                 //this is only applicable when window size below 450px
+                 if (jQuery(this).parents('.more').length == 0)
+                     jQuery('.hornav li.more ul').hide();
+
+                 //remove current menu
+                 jQuery('.hornav li').each(function () {
+                     jQuery(this).removeClass('current');
+                 });
+
+                 jQuery(this).parent().addClass('current'); // set as current menu
+
+                 var url = jQuery(this).attr('href');
+                 if (jQuery(url).length > 0) {
+                     jQuery('.contentwrapper .subcontent').hide();
+                     jQuery(url).show();
+                 } else {
+                     jQuery.post(url, function (data) {
+                         jQuery('#contentwrapper').html(data);
+                         jQuery('.stdtable input:checkbox').uniform(); //restyling checkbox
+                     });
+                 }
+                 return false;
+             });
+
+
+             ///// SEARCH BOX WITH AUTOCOMPLETE /////
+
+             var availableTags = [
+			"ActionScript",
+			"AppleScript",
+			"Asp",
+			"BASIC",
+			"C",
+			"C++",
+			"Clojure",
+			"COBOL",
+			"ColdFusion",
+			"Erlang",
+			"Fortran",
+			"Groovy",
+			"Haskell",
+			"Java",
+			"JavaScript",
+			"Lisp",
+			"Perl",
+			"PHP",
+			"Python",
+			"Ruby",
+			"Scala",
+			"Scheme"
+		];
+             jQuery('#keyword').autocomplete({
+                 source: availableTags
+             });
+
+
+             ///// SEARCH BOX ON FOCUS /////
+
+             jQuery('#keyword').bind('focusin focusout', function (e) {
+                 var t = jQuery(this);
+                 if (e.type == 'focusin' && t.val() == 'Enter keyword(s)') {
+                     t.val('');
+                 } else if (e.type == 'focusout' && t.val() == '') {
+                     t.val('Enter keyword(s)');
+                 }
+             });
+
+
+             ///// NOTIFICATION CLOSE BUTTON /////
+
+             jQuery('.notibar .close').click(function () {
+                 jQuery(this).parent().fadeOut(function () {
+                     jQuery(this).remove();
+                 });
+             });
+
+
+             ///// COLLAPSED/EXPAND LEFT MENU /////
+             jQuery('.togglemenu').click(function () {
+                 if (!jQuery(this).hasClass('togglemenu_collapsed')) {
+
+                     //if(jQuery('.iconmenu').hasClass('vernav')) {
+                     if (jQuery('.vernav').length > 0) {
+                         if (jQuery('.vernav').hasClass('iconmenu')) {
+                             jQuery('body').addClass('withmenucoll');
+                             jQuery('.iconmenu').addClass('menucoll');
+                         } else {
+                             jQuery('body').addClass('withmenucoll');
+                             jQuery('.vernav').addClass('menucoll').find('ul').hide();
+                         }
+                     } else if (jQuery('.vernav2').length > 0) {
+                         //} else {
+                         jQuery('body').addClass('withmenucoll2');
+                         jQuery('.iconmenu').addClass('menucoll2');
+                     }
+
+                     jQuery(this).addClass('togglemenu_collapsed');
+
+                     jQuery('.iconmenu > ul > li > a').each(function () {
+                         var label = jQuery(this).text();
+                         jQuery('<li><span>' + label + '</span></li>')
+					.insertBefore(jQuery(this).parent().find('ul li:first-child'));
+                     });
+                 } else {
+
+                     //if(jQuery('.iconmenu').hasClass('vernav')) {
+                     if (jQuery('.vernav').length > 0) {
+                         if (jQuery('.vernav').hasClass('iconmenu')) {
+                             jQuery('body').removeClass('withmenucoll');
+                             jQuery('.iconmenu').removeClass('menucoll');
+                         } else {
+                             jQuery('body').removeClass('withmenucoll');
+                             jQuery('.vernav').removeClass('menucoll').find('ul').show();
+                         }
+                     } else if (jQuery('.vernav2').length > 0) {
+                         //} else {
+                         jQuery('body').removeClass('withmenucoll2');
+                         jQuery('.iconmenu').removeClass('menucoll2');
+                     }
+                     jQuery(this).removeClass('togglemenu_collapsed');
+
+                     jQuery('.iconmenu ul ul li:first-child').remove();
+                 }
+             });
+
+
+
+             ///// RESPONSIVE /////
+             if (jQuery(document).width() < 640) {
+                 jQuery('.togglemenu').addClass('togglemenu_collapsed');
+                 if (jQuery('.vernav').length > 0) {
+
+                     jQuery('.iconmenu').addClass('menucoll');
+                     jQuery('body').addClass('withmenucoll');
+                     jQuery('.centercontent').css({ marginLeft: '56px' });
+                     if (jQuery('.iconmenu').length == 0) {
+                         jQuery('.togglemenu').removeClass('togglemenu_collapsed');
+                     } else {
+                         jQuery('.iconmenu > ul > li > a').each(function () {
+                             var label = jQuery(this).text();
+                             jQuery('<li><span>' + label + '</span></li>')
+						.insertBefore(jQuery(this).parent().find('ul li:first-child'));
+                         });
+                     }
+
+                 } else {
+
+                     jQuery('.iconmenu').addClass('menucoll2');
+                     jQuery('body').addClass('withmenucoll2');
+                     jQuery('.centercontent').css({ marginLeft: '36px' });
+
+                     jQuery('.iconmenu > ul > li > a').each(function () {
+                         var label = jQuery(this).text();
+                         jQuery('<li><span>' + label + '</span></li>')
+					.insertBefore(jQuery(this).parent().find('ul li:first-child'));
+                     });
+                 }
+             }
+
+
+             jQuery('.searchicon').live('click', function () {
+                 jQuery('.searchinner').show();
+             });
+
+             jQuery('.searchcancel').live('click', function () {
+                 jQuery('.searchinner').hide();
+             });
+
+
+
+             ///// ON LOAD WINDOW /////
+             function reposSearch() {
+                 if (jQuery(window).width() < 520) {
+                     if (jQuery('.searchinner').length == 0) {
+                         jQuery('.search').wrapInner('<div class="searchinner"></div>');
+                         jQuery('<a class="searchicon"></a>').insertBefore(jQuery('.searchinner'));
+                         jQuery('<a class="searchcancel"></a>').insertAfter(jQuery('.searchinner button'));
+                     }
+                 } else {
+                     if (jQuery('.searchinner').length > 0) {
+                         jQuery('.search form').unwrap();
+                         jQuery('.searchicon, .searchcancel').remove();
+                     }
+                 }
+             }
+             reposSearch();
+
+             ///// ON RESIZE WINDOW /////
+             jQuery(window).resize(function () {
+
+                 if (jQuery(window).width() > 640)
+                     jQuery('.centercontent').removeAttr('style');
+
+                 reposSearch();
+
+             });
+         });
+
+         //===========================================================================================================================================================================================================================
+         function showhideLM(a, id) {
+             document.getElementById(id).style.display = (document.getElementById(id).style.display == 'none') ? 'block' : 'none';
+             a.innerHTML = (document.getElementById(id).style.display == 'none') ? '<img alt="Show Menu" border=0 src="../../images/showmenubar.gif">' : '<img alt="Hide Menu" border="0" src="../../images/hidemenubar.gif">';
+         }
+
+         function showhideFilter(a, id) {
+             document.getElementById(id).style.display = (document.getElementById(id).style.display == 'none') ? 'block' : 'none';
+             a.innerHTML = (document.getElementById(id).style.display == 'none') ? '<img border="0" width="16" height="16" src="../../images/icon_filter.gif"> Show Filter' : '<img border="0" width="16" height="16" src="../../images/icon_filter.gif"> Hide Filter';
+         }
+
+         function ExpandCollapse(a, id) {
+             document.getElementById(id).style.display = (document.getElementById(id).style.display == 'none') ? 'block' : 'none';
+             a.innerHTML = (document.getElementById(id).style.display == 'none') ? '<img alt="Show Details" title="Show Details" border="0" width="16" height="16" src="../../images/icon_expand.gif">' : '<img alt="Hide Details" title="Hide Details" border="0" width="16" height="16" src="../../images/icon_collapse.gif">';
+         }
+
+         //========================================================================================================
+         function ShowUserProfileModal(username) {
+             var frame = $get('IframeUserProfile');
+             //var edit_path = "../../modules/admin/security/users/aspnet_userprofile_edit.aspx?mode=edit&username=";
+             var edit_path = "../../modules/admin/security/users/profile_edit.aspx?mode=edit&username=";
+             var frame = $get('IframeUserProfile');
+             frame.src = edit_path + username;
+             $find('UserProfileModalPopup').show();
+         }
+
+
+         function UserProfileCancelScript() {
+             var frame = $get('IframeUserProfile');
+             frame.src = "loading.aspx";
+         }
+
+         function UserProfileOkayScript() {
+             UserProfileCancelScript();
+         }
+         //=============================================================================================================================================================================================================================
+         function fnKeepSessionLive() {
+             var base_url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+             var myurl = base_url + "/KeepSessionAlive.aspx";
+
+             if (window.XMLHttpRequest) {
+                 xhttp = new XMLHttpRequest()
+             }
+             else {
+                 xhttp = new ActiveXObject("Microsoft.XMLHTTP")
+             }
+             xhttp.open("POST", myurl, true);
+             xhttp.send("");
+
+             window.setTimeout("fnKeepSessionLive();", 60000);
+         }
+         fnKeepSessionLive(); 
+    </script> 
+
+    <script type="text/javascript">
+        Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+
+        function EndRequestHandler(sender, args) {
+            Validate();
+        }   
+    </script>
+</head>
+<body class="withvernav">
+    <form id="form1" runat="server" enctype="multipart/form-data">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">Portal - <span>Sys</span></h1>
+            <span class="slogan">Search</span>
+            
+            <div class="search">
+            	<form action="" method="post">
+                	<input aria-haspopup="true" aria-autocomplete="list" role="textbox" autocomplete="off" class="ui-autocomplete-input" name="keyword" id="keyword" value="Enter keyword(s)" type="text"/>
+                    <button class="submitbutton"></button>
+                </form>
+            </div><!--search-->
+            
+            <br clear="all"/>
+            
+        </div><!--left-->
+        
+        <div class="right">
+        	<div class="notification">
+                <a class="count" href="#"><span>9</span></a>
+        	</div>
+            <asp:Literal ID="Literal_UserInfo" runat="server"></asp:Literal>
+        </div><!--right-->
+    </div><!--topheader-->
+    
+    
+    <div class="header">
+    	<ul class="headermenu">
+        	<li class="current"><a href="default.aspx?option=dashboard"><span class="icon icon-flatscreen"></span>Dashboard</a></li>
+            <li><a href="default.aspx?option=modules/admin/shopcarts/products/admin_products"><span class="icon icon-pencil"></span>Sản Phẩm</a></li>
+            <li><a href="default.aspx?option=shopcarts"><span class="icon icon-pencil"></span>Giỏ Hàng</a></li>
+            <li><a href="default.aspx?option=orders"><span class="icon icon-pencil"></span>Hóa Đơn</a></li>
+            <li><a href="default.aspx?option=portals/vass/controls/news"><span class="icon icon-message"></span>Tin Tức</a></li>
+            <li><a href="default.aspx?option=report"><span class="icon icon-chart"></span>Reports</a></li>
+        </ul>
+        
+        <div class="headerwidget">
+        	<div class="earnings">
+            	<div class="one_half">
+                	<h4>Today's Earnings</h4>
+                    <h2>$640.01</h2>
+                </div><!--one_half-->
+                <div class="one_half last alignright">
+                	<h4>Current Rate</h4>
+                    <h2>53%</h2>
+                </div><!--one_half last-->
+            </div><!--earnings-->
+        </div><!--headerwidget-->
+        
+        
+    </div><!--header-->
+    
+    <div class="vernav2 iconmenu">
+    	<ul>
+        	<li><a href="#formsub" class="editor">Forms</a>
+            	<span class="arrow"></span>
+            	<ul id="formsub">
+               		<li><a href="#">Basic Form</a></li>
+                    <li><a href="#">Wizard</a></li>
+                    <li><a href="#">WYSIWYG</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="gallery">File Manager</a></li>
+            <li><a href="#" class="elements">Elements</a></li>
+            <li><a href="#" class="widgets">Widgets</a></li>
+            <li><a href="#" class="calendar">Calendar</a></li>
+            <li><a href="#" class="support">Customer Support</a></li>
+            <li><a href="#" class="typo">Typography</a></li>
+            <li><a href="#" class="tables">Tables</a></li>
+			<li><a href="#" class="buttons">Buttons &amp; Icons</a></li>
+            <li><a href="#error" class="error">Error Pages</a>
+            	<span class="arrow"></span>
+            	<ul id="error">
+               		<li><a href="#">Page Not Found</a></li>
+                    <li><a href="#">Forbidden Page</a></li>
+                    <li><a href="#">Internal Server Error</a></li>
+                    <li><a href="#">Offline</a></li>
+                </ul>
+            </li>
+            <li><a href="#addons" class="addons">Addons</a>
+            	<span class="arrow"></span>
+            	<ul id="addons">
+               		<li><a href="#">News Feed</a></li>
+                    <li><a href="#">Profile Page</a></li>
+                    <li><a href="#">Product List</a></li>
+                    <li><a href="#">Photo/Video Sharing</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Invoice</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a class="togglemenu"></a>
+        <br/><br/>
+    </div><!--leftmenu-->
+        
+    <div class="centercontent">
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">        
+         </asp:ContentPlaceHolder>
+        <br clear="all"/>        
+	</div><!-- centercontent -->
+    
+    <div class="clearall"></div>
+</div><!--bodywrapper-->
+
+
+
+
+    <%----------------------------- ModalPopupExtender_UserProfile -------------------------------------%>    
+        <asp:Button ID="ButtonUserProfile" runat="server" Text="UserProfile" style="display:none" />
+        <ajaxToolkit:ModalPopupExtender ID="btnUserProfile_ModalPopupExtender" BackgroundCssClass="ModalPopupBG"
+                runat="server" CancelControlID="ButtonUserProfileCancel" OkControlID="ButtonUserProfileDone" 
+                TargetControlID="ButtonUserProfile" PopupControlID="DivUserProfileWindow" 
+                OnCancelScript="UserProfileCancelScript();" OnOkScript="UserProfileOkayScript();" 
+                BehaviorID="UserProfileModalPopup">
+            </ajaxToolkit:ModalPopupExtender>
+        <div class="popup_Buttons" style="display: none">
+            <input id="ButtonUserProfileDone" value="Done" type="button" />
+            <input id="ButtonUserProfileCancel" value="Cancel" type="button" />
+        </div>
+        <div id="DivUserProfileWindow" style="display: none;" class="popupConfirmation">
+            <iframe id="IframeUserProfile" frameborder="0" width="800" height="500" scrolling="no">
+            </iframe>
+        </div>     
+
+    <iframe ID="KeepAliveFrame" src="~/KeepSessionAlive.aspx" style="border:0" width="0" height="0" runat="server"></iframe>
+    </form>
+</body>
+</html>

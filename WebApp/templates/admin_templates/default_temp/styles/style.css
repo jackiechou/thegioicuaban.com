@@ -1,0 +1,602 @@
+html, body {
+   margin:0;
+   padding:0;
+   font: 11px/1.25 "Helvetica Neue", Arial, sans-serif;	
+   overflow: visible;
+   min-width:775px;
+   height :100%;	
+   /*border:none;*/
+}
+	
+h1, h2, h3, h4, h5, h6{	margin: 0 3px;}
+p{  padding:0px;  margin:3px;}
+ul, ol { list-style-type: none; margin:0; padding:0; }
+img	{ border: 0; }
+.clearboth{clear:both;}
+.input, select {
+    border: 1px solid silver;
+    font-size: 10px;
+}
+
+/* get rid of those system borders being generated for A tags */
+a:active {
+    outline:none;
+}
+
+a:focus {
+    -moz-outline-style:none;
+}
+
+
+.fleft{float:left} .fright{float:right}
+.left{text-align:left} .right{text-align:right}
+.left_text {text-align:left;} .right_text {text-align:right;}
+.highlight {text-decoration: none;color:black;background:yellow;}
+/*============ CONTROL PANEL INDEX =============*/
+.wrap_full
+{
+    display:block;
+    /*set the div in the top-left corner of the screen*/
+    position:absolute;
+    top:0;
+    left:0;
+    
+    /*set the width and height to 100% of the screen*/
+    width:100%;
+    height:100%;
+
+}
+.wrap , .wrap_inner
+{
+   position: relative;
+   height:100%;
+   min-height:100%;   
+}
+
+div.cpanel_left
+{
+    width: 380px;
+    float: left;
+    font-size: 10px;
+	padding:10px;
+}
+        
+#cpanel div.icon
+{
+    text-align: center;
+    margin-right: 15px;
+    float: left;
+    margin-bottom: 15px;
+}
+        
+#cpanel div.icon a
+{
+    background-color: #fff;
+    background-position: -30px;
+    display: block;
+    float: left;
+    border: 1px solid #eaeaea;
+    height: 97px;
+    width: 108px;
+    color: #565656;
+    vertical-align: middle;
+    text-decoration: none;
+    border: 1px solid #CCC;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition-property: background-position, -webkit-border-bottom-left-radius, -webkit-box-shadow;
+    -moz-transition-property: background-position, -moz-border-radius-bottomleft, -moz-box-shadow;
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+}
+        
+#cpanel div.icon a:hover, #cpanel div.icon a:focus, #cpanel div.icon a:active
+{
+    background-position: 0;
+    -webkit-border-bottom-left-radius: 50% 20px;
+    -moz-border-radius-bottomleft: 50% 20px;
+    border-bottom-left-radius: 50% 20px;
+    -webkit-box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 10;
+}
+        
+#cpanel img
+{
+    padding: 10px 0;
+    margin: 0 auto;
+}
+        
+#cpanel span
+{
+    display: block;
+    text-align: center;
+}				
+		
+div.cpanel_right{
+	float:left;
+	
+	height:100%;
+}
+/*============== END CONTROL PANEL ===========*/
+/*============== HEADER ===========*/
+.header_container{	
+	min-width:775px;
+	margin:0px; padding:0px;	
+	width:100%;
+	text-align:left;		 
+}
+
+.header
+{
+    height:40px;
+    width:100%;
+	text-align:left;
+	background: url("../images/bg/pattern9.png") repeat scroll 0 0 #FFFFFF; 	
+}
+.header:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.header .heading_text
+{
+    font:bold 22px "Helvetica Neue", Arial, sans-serif;
+    margin:5px 0 5px 15px;	
+    text-shadow: 0 1px 1px #CCCCCC;
+}
+
+.head
+.header .heading
+{
+    font: 25px/1.25 "Helvetica Neue", Arial, sans-serif;	
+    color:#000000;
+    padding: 30px 0px 0px 30px;
+}
+.header_container .logo{ padding:0px 0px 0px 10px; float:left;}
+.header_container .info{float:right; width:400px; height:70px;  z-index:1; top:3px; right:30px; padding:4px; text-align:right;}
+.header_container .info .user_info{}
+
+/*============== END HEADER ===========*/
+/*============== NAR BAR ===========*/
+
+.nar_bar
+{
+    border-top: 3px solid #9E1F00;
+	margin:0;padding:0;
+	height:31px;
+	width:100%;
+	
+}
+.nar_bar .tab{
+	padding:0 20px;
+}
+/* Framework for proper showing/hiding/positioning */
+/* DO NOT EDIT FROM HERE */
+ul.sf-menu
+,ul.sf-menu * {
+margin:0;
+padding:0;
+}
+
+ul.sf-menu {
+display:block;
+position:relative;
+z-index:1;
+}
+ul.sf-menu li {
+display:block;
+list-style:none;
+float:left;
+min-width:120px;
+position:relative;
+margin-left:-1px;
+}
+ul.sf-menu li:hover {
+visibility:inherit; /* fixes IE7 'sticky bug' */
+
+}
+ul.sf-menu a {
+display:block;
+padding:8px 5px ;
+position:relative;
+}
+ul.sf-menu ul {
+position:absolute;
+left:0;
+width:150px; 
+top:auto;
+left:-999999px;
+}
+ul.sf-menu ul a {
+zoom:1; /* IE6/7 fix */
+}
+ul.sf-menu ul li {
+float:left; /* Must always be floated otherwise there will be a rogue 1px margin-bottom in IE6/7 */
+width:150px;
+}
+ul.sf-menu ul ul {
+top:0;
+margin:0 0 0 150px
+}
+
+ul.sf-menu li:hover ul,ul.sf-menu li:focus ul,ul.sf-menu li.sf-hover ul { /*first level*/
+left:auto;
+}
+ul.sf-menu li:hover ul ul,ul.sf-menu li:focus ul ul,ul.sf-menu li.sf-hover ul ul {
+left:-999999px;
+}
+ul.sf-menu ul li:hover ul,ul.sf-menu ul li:focus ul,ul.sf-menu ul li.sf-hover ul {/*second level*/
+left:auto;
+}
+ul.sf-menu ul li:hover ul ul,ul.sf-menu ul li:focus ul ul,ul.sf-menu ul li.sf-hover ul ul {
+left:-999999px;
+}
+ul.sf-menu ul ul li:hover ul,ul.sf-menu ul ul li:focus ul,ul.sf-menu ul ul li.sf-hover ul {/*third level*/
+left:auto;
+}
+ul.sf-menu ul ul li:hover ul ul,ul.sf-menu ul ul li:focus ul ul,ul.sf-menu ul ul li.sf-hover ul ul {
+left:-999999px;
+}
+ul.sf-menu ul ul ul li:hover ul,ul.sf-menu ul ul ul li:focus ul,ul.sf-menu ul ul ul li.sf-hover ul {/*fourth level*/
+left:auto;
+}
+ul.sf-menu ul ul ul li:hover ul ul,ul.sf-menu ul ul ul li:focus ul ul,ul.sf-menu ul ul ul li.sf-hover ul ul {
+left:-999999px;
+}
+
+/* autoArrows CSS */
+
+span.sf-arrow
+{
+    width: 7px;
+    height: 7px;   
+    top: 8px;
+    right: 0;
+    display: block;
+    background: url('../images/arrows-black.png') no-repeat 0 0;
+    overflow: hidden; /* making sure IE6 doesn't overflow and expand the box */
+    font-size: 1px;
+}
+
+ul ul span.sf-arrow {
+right:12px;
+top:7px;
+background-position:0 100%;
+}
+/*============== END NAR BAR ===========*/
+.main	
+{
+    width:100%;
+	height:100%;
+	/*
+        position:fixed;
+        padding-top: 90px;*/	
+	/* padding-bottom:35px; Height of the footer */
+	clear:both;
+}
+/*============== TOOLBAR ===========*/
+.breadCrumb
+{    
+    width:100%;  
+    padding:0 14px 0 0;   
+    /*background-color: #E6E6E6;
+    background-image: none;*/
+    background: url("../images/bg/pattern9.png") repeat scroll 0 0 #F5F5F5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    outline: 0 none;
+}
+
+.breadCrumb ul li {
+    background: url("../images/icons/crumbs.png") no-repeat scroll 100% 0 transparent;
+    display: block;
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    margin: 0 6px 0 0;
+    overflow: hidden;
+    padding: 3px 20px 3px 0;
+    position: relative;
+}
+
+.breadCrumb ul li a {
+    display: block;
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    overflow: hidden;
+    position: relative;
+}
+
+.breadCrumb ul li.first a {
+    background: url("../images/icons/IconHome.gif") no-repeat scroll 0 0 transparent;
+    height: 16px !important;
+    margin-top: 2px;
+    overflow: hidden;
+    padding: 0;
+    text-indent: -1000em;
+    width: 16px;
+}
+.breadCrumb ul li a span{
+  color:#7C7C7C;
+}
+
+.main wrap_panel
+{
+    width:100%;
+    clear:both;
+    
+}
+
+.main .commontool
+{
+    width:100%;
+	height:53px;
+	padding: 2px 0px;
+	display:block;
+	margin:0px 0px 0px 0px;
+	background:url("../images/bg/pattern9.png") repeat scroll 0 0 #F5F5F5;
+	border-bottom:1px solid #D5D5D5;
+    clear:both;
+}
+
+.main .commontool h3
+{
+    padding:9px 14px;
+    font-size:20px;
+    text-transform:uppercase;
+    float:left;
+}
+
+.main .group_commands
+{
+    background:url("../images/bars/breadcrumbs.png") repeat scroll 0 0 #F5F5F5;
+}
+
+
+.toolbar{
+	padding:0px;
+	margin:2px;
+	float:right;
+	text-align:center;
+}
+
+.toolbar a.btn
+{
+    margin: 0px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    float: left;
+    padding: 1px 5px;
+    white-space: nowrap;
+    text-align:center;
+}
+/*.toolbar a.btn
+{
+	border:1px solid;	
+	box-shadow:0 1px 0 0 #AAAAAA;
+	height:20px;
+	border-radius:4px;
+	padding:3px 8px;
+	margin:0px 5px;
+	line-height:14px;
+	vertical-align:middle;	
+	-webkit-box-shadow:0 1px 0 0 #AAA;
+	-moz-box-shadow:0 1px 0 0 #AAA;
+	text-shadow:rgba(0,0,0,0.25) 0 1px 1px 0;
+}
+
+.toolbar .btn a{
+	color:#FFF;
+	font-weight:bold;
+	text-shadow:1px 1px 1px rgba(0, 0, 0, 0.75);
+}*/
+
+.toolbar a.btn:hover,
+.toolbar a.btn:focus,
+.toolbar a.btn:active {
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-decoration: none;
+	text-align:center;
+	color: #0B55C4;
+}
+	
+.toolbar .btn span {
+	float: none;
+	width: 32px;
+	height: 32px;
+	margin: 0 auto;
+	display: block;
+}
+
+.paneshell{
+	background:url("../images/bg/pattern9.png") repeat scroll 0 0 #F5F5F5;
+	width:100%;
+	height:100%;	
+	color:#666666;	
+}
+
+.common_commands
+{
+   width:100%;
+   clear:both;
+}
+
+.common_tool h3
+{
+   font-size:20px;
+   width:500px;
+   float:left;
+   margin:20px auto auto 10px;
+   text-transform:uppercase;
+}
+
+.common_tool
+{
+    width:100%;
+}
+
+.content_panel
+{
+    width:100%;  
+    clear:both;
+    height:500px;
+}
+
+.panelContainer
+{
+    width:100%;
+    position:absolute;     
+    display:block;
+}
+
+.GridView
+{
+    /* width:100%;
+    border-top: 0px;
+   position:absolute;*/
+}
+
+#group_commands
+{
+   padding-top:65px;
+   clear:both;
+}
+
+#group_panel
+{
+    padding-top:5px;
+}
+
+.shell_content_inner{
+	display:block;
+	visibility:visible;
+}
+
+.shell_content_inner .box_left{
+	float:left;	
+	width:20%;	
+}
+
+.shell_content_inner .main_content{
+	float:left;
+	margin:auto auto;
+	text-align:center;
+	width:80%;
+}
+
+.fillter_tool
+{
+    float:right;
+}
+
+.pagination
+{
+    text-align:center;
+}
+/*============== END TOOLBAR ===========*/
+
+
+/*=================FOOTER==========*/
+.footer
+{
+    position:fixed;
+    left: 0; right: 0;
+    bottom:0;
+    width:100%;
+	height:15px;	
+	width:100%;		
+}
+
+.footer .gototop
+{
+    /*background: url('../images/icon/uparrow.png') no-repeat 0 0;   */
+    position: fixed; 
+    bottom: 5px; 
+    right: 4px;
+}
+.footer .bottom_info
+{
+    padding:1px 3px 3px 5px;
+}
+
+.company_info{
+	padding:4px;
+}
+
+
+#ModalBehavior_foregroundElement
+{
+    top: 10px !important;
+}
+
+.watermarked 
+{ 
+   background-color: #E1E1E1; 
+   border: solid 1px #808080; 
+   padding: 2px; 
+} 
+
+.unwatermarked 
+{ 
+   border: solid 1px #808080; 
+   padding: 2px; 
+}
+
+/***** USER INFORMATION DROP STYLES *****/
+/*******************************************/
+.userinfo  
+{
+    float:right;
+    width: 110px;
+	padding: 7px 18px 6px 6px; 
+	background: url(../images/icon/userinfoarrow.png) no-repeat right center;
+	/*background: #32415a url(../images/icon/userinfoarrow.png) no-repeat right center; -moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; border-radius: 2px; -moz-box-shadow: inset 1px 1px 2px #2b384e; float: left; border-bottom: 1px solid #445775;
+	-webkit-box-shadow: inset 1px 1px 2px #2b384e; box-shadow: inset 1px 1px 2px #2b384e; */
+    cursor: pointer;
+}
+a.userdata_link{font-family: Georgia,"Times New Roman",Times,serif; font-size: 12px;color:#666666; text-decoration:none;}
+.userinfo:hover { background-color: #F8F7F7;/*background-color: #2d3b53;*/ }
+.userinfo img { border: 1px solid #b9c1ce; vertical-align: middle; }
+.userinfo span { color: #b9c2cf; padding: 0 5px; font-family: 'RobotoCondensed', Arial, Helvetica, sans-serif; }
+
+.userinfodrop { 
+	padding: 10px; min-width: 300px; position: absolute; top:40px; right: 0; -moz-border-radius: 2px; display: none;
+	-webkit-border-radius: 2px; border-radius: 2px; background: #fff; -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); z-index: 200;
+}
+
+.userinfodrop .avatar { float: left; }
+
+.userdata { margin-left: 105px;}
+.userdata h4 { margin:0px;color: #2d3c54; display: block; font-size: 18px;}
+.userdata .email { color: #999; font-size: 11px; display: block; margin-top:0px;}
+.userdata ul { list-style: none; margin-top: 10px; padding:0px; margin:0px;}
+.userdata ul li { display: block; margin-bottom: 1px; }
+.userdata ul li:last-child { margin-bottom: 0; }
+.userdata ul li a { display: block; padding: 5px; background: #f7f7f7;font-size: 12px; color: #666666; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
+.userdata ul li a:hover { background: #fb9337; color: #fff; }
+
+/*============================================================================*/
+.divBG
+{
+	left: 0;
+    top: 0;
+    z-index: 10;
+	width: 100%;
+    height: 100%;            
+	position: fixed;
+	background-color: #666699;
+	filter: alpha(opacity=40);
+	opacity: 0.4;
+}

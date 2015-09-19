@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	color:#454545;
+	}
+/* ================================= */	
+.background
+{
+    background:none !important;
+    border:none !important;    
+}
+
+.staticMenuItemStyle:hover, .dynamicMenuItemStyle:hover
+{
+    background:none !important;
+}
+/* ================================= */
+		
+a, a:link{	text-decoration:none; color:#E8E8E8 !important;}
+a:hover, a:actived{ text-decoration: none; color:#FFFFFF !important;}
+
+.header_container{	
+	background:url("../images/header/bg-pink.png") repeat-x scroll 0 0 #B72B5A;
+	color:#FFFFFF;	
+}
+
+.nar_bar{
+	background:#BA3962; /* color1 ==> pink = banner */
+}
+
+.nar_bar ul li{
+	border: 1px solid #EBC5D2;
+	background-color:#E06B97;
+	background-image:-moz-linear-gradient(#E37DA2, #E06B97);
+}
+
+.nar_bar ul li:hover{
+	background-image:-moz-linear-gradient(#E37DA2, #BA3962);
+}
+
+.nar_bar ul li a,.nar_bar ul li a:link{
+	color:#E8E8E8;	
+}
+
+.nar_bar ul li a:hover{
+	color:#FFFFFF;
+}
+
+.nar_bar ul li.active a,.nar_bar ul li.active a:link{
+	color:#666;	
+}
+
+.main .commontool h3
+{    
+    color:#BA3962;
+}
+
+.toolbar .btn{
+	border:1px solid #E06B97;
+	background-image:-moz-linear-gradient(#E37DA2, #EBC5D2);
+	border-color:#C8C8C8 #414141 #9D9C9C #666666;	
+	background-image:-webkit-gradient(linear,0 top,0 bottom,from(#E37DA2),to(#BA3962));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E37DA2,endColorstr=#BA3962));
+}
+
+.nar_bar ul li.active, .nar_bar ul li.active a:hover, .nar_bar ul li.active a:focus, .nar_bar ul li.active{		
+	background:#E0E0E0;
+	background-image:-moz-linear-gradient(#FFFFFF, #E0E0E0);
+	color:#000;
+}
+
+
+.toolbar .btn:hover{
+	background-color:#4e4e4e;background-image:-moz-linear-gradient(#E37DA2, #CCCCCC,#BA3962);
+	background-image:-webkit-gradient(linear,0 top,0 bottom,from(#E37DA2),to(#BA3962));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E37DA2,endColorstr=#BA3962));
+}
+
+table.table_list{
+	border-color:#EBC5D2;
+}
+
+table.table_list th{
+	background:none repeat scroll 0 0 #EBC5D2;
+	border-bottom:1px solid #E06B97;
+	border-left:1px solid #FFFFFF;
+}
+
+table.table_list tbody tr.row0:hover,table.table_list tbody tr.row1:hover{
+	background:#CCCCCC;
+}
+
+.box{
+	border:1px solid #EBC5D2;	
+}
+
+.box .box_title{
+	background:none repeat scroll 0 0 #EBC5D2;
+	border-bottom:1px solid #E06B97;
+	border-left:1px solid #FFFFFF;
+	color:#15527E;
+}
+/*
+.button, .checkbox, .textbox, .combobox, .text_area{	 	
+	border:1px solid #EBC5D2;
+	
+}
+*/
+.button{	 	
+	color:#FFF;
+	font-weight:bold;
+	background-image:-moz-linear-gradient(#E37DA2, #BA3962);
+}
+
+.button:hover{	
+	background-image:-moz-linear-gradient(#E37DA2,#CCCCCC, #BA3962);
+	box-shadow:0 1px 0 0 #E37DA2;
+}
+
+.footer{
+	border-top:3px solid #B72B5A;
+	background-image:-moz-linear-gradient(#E06B97, #B72B5A);
+}
+
+.company_info{
+	color:#FFFFFF;	
+}

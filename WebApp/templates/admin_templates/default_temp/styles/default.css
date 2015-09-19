@@ -1,0 +1,320 @@
+/* CSS Document */
+* {
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+}
+
+body
+{
+    width: 100%; 
+    min-width: 650px; 
+    color: rgb(62, 62, 62);	
+	font:11px/1.231 Arial,Helvetica,Tahoma,Verdana,Geneva,clean,sans-serif;		
+	padding:0px;
+	margin:0px;
+	text-align:center;
+	background-color:#EDEDED; 		
+	line-height: 1.23;
+	cursor: default;
+	text-decoration: none;
+	SCROLLBAR-ARROW-COLOR: #dddddd; 
+	SCROLLBAR-FACE-COLOR: #bbbbbb; 		
+	SCROLLBAR-DARKSHADOW-COLOR: #aaaaaa; 
+	SCROLLBAR-BASE-COLOR: #dddddd; 
+	SCROLLBAR-HIGHLIGHT-COLOR: #dddddd; 
+	SCROLLBAR-TRACK-COLOR: #dddddd; 
+	SCROLLBAR-3DLIGHT-COLOR: #aaaaaa; 
+}
+
+ /*  body a:hover,body a:hover .time, body a:hover .shade, body a:hover .understate { color: rgb(65, 115, 148); text-decoration: underline; }*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin: 0pt; padding: 0pt; }
+fieldset, img { /*border: 0pt none ; */  border: none; border-width: 0px; border-style: none; outline:none; cursor:hand;}
+ /*IMG {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; VERTICAL-ALIGN: middle; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}*/
+li { list-style: none outside none; }
+font {line-height: 1.23;}
+input, button, textarea, select, optgroup, option {  font: 99% arial,helvetica,Tahoma,Calibri,Verdana,Geneva, clean,sans-serif;  }       
+input, textarea {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BACKGROUND-COLOR: #ffffff; COLOR: #888888; VERTICAL-ALIGN: middle; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid
+}
+input.submit
+{
+border: 3px double #999999;
+border-top-color: #CCCCCC;
+border-left-color: #CCCCCC;
+padding: 0.25em;
+background-color: #FFFFFF;
+background-image: url("images/icons/submit.jpg") background-repeat: repeat-x;
+color: #333333;
+font-size: 75%;
+font-weight: bold;
+font-family: Verdana, Helvetica, Arial, sans-serif;
+} 
+
+input.submit:active
+{
+border: 3px double #CCCCCC;
+border-top-color: #999999;
+border-left-color: #999999;
+} 
+button{border:0;border-style:none}
+a:link {
+	TEXT-DECORATION: none;
+    onFocus: this.blur();
+}
+a:visited {
+    TEXT-DECORATION: none
+}
+a:hover {
+	TEXT-DECORATION: none
+}
+a:active {
+	TEXT-DECORATION: none
+}
+
+
+
+h1 {
+	font-size: 28px;
+	color: #6C9134;
+	background-color: #FFFFFF;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-weight: 300;
+}
+h2 {
+	font-size: 15px;
+	color: gray;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-weight: 300;
+	background-color: #FFFFFF;
+}
+h3 {
+	color: #6C9134;
+	font-size: 15px;
+	text-align: left;
+	font-weight: 300;
+	padding: 5px 0;
+	margin-top: 5px;
+}
+#wrapper
+{
+    text-align:center;
+}
+
+TABLE {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px;
+	margin:0px;
+}
+TD {
+	LINE-HEIGHT: 160%; FONT-FAMILY: "Verdana"; WHITE-SPACE: nowrap; COLOR: #333333; 
+	FONT-SIZE: 11px; WORD-BREAK: break-all;   
+}
+
+.pix_table {
+	WIDTH: 750px; TABLE-LAYOUT: fixed; WORD-BREAK: break-all; align: center
+}
+
+
+.select_list {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; BACKGROUND-COLOR: #ffffff; FONT-FAMILY: "Verdana"; COLOR: #888888; FONT-SIZE: 10px; VERTICAL-ALIGN: middle; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid
+}
+
+.input_login {
+	BORDER-BOTTOM: #acacac 1px solid; BORDER-LEFT: #acacac 1px solid; BACKGROUND-COLOR: #e1e1e1; FONT-FAMILY: "Verdana"; COLOR: #888888; FONT-SIZE: 10px; VERTICAL-ALIGN: middle; BORDER-TOP: #acacac 1px solid; BORDER-RIGHT: #acacac 1px solid
+}
+.input_check {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+
+#top {			
+	top: 0px; 
+	width:1024px;
+	height:152px;
+	text-align: left; 
+	margin-top:4px;	
+	background: url(../../images/layout/banner_astool.jpg) scroll center top; 		
+}
+#top_menu 
+{
+    top: 0px; 
+	left: 0px;
+	text-align: left; 
+	width: 1024px;
+	HEIGHT: 28px; 		
+	background: url(../../images/layout/menu_astool.jpg) fixed center top; 
+}
+
+#content 
+{
+    top: 0px; 
+	left: 0px;
+	text-align: left; 
+	width:1024px;    	
+}
+
+#footer {    
+    width:1024px;    
+	text-align: left; 	
+	vertical-align: middle; 	
+	background:#DBDBDB;	
+}
+
+#footer #left_bar_footer{  
+  float:left;
+  width:60%;
+  color:#5F5F5F;
+  font:12px;
+}
+#footer #right_bar_footer {
+  float: left;
+  width: 40%; 
+  color:#5F5F5F;
+  font:12px; 
+}
+
+#info {
+	PADDING-LEFT: 10px; WIDTH: 10px; PADDING-RIGHT: 10px; BACKGROUND: #e1b253; HEIGHT: 22px; COLOR: #ffffff; FONT-SIZE: 12px; VERTICAL-ALIGN: middle; FONT-WEIGHT: bold
+}
+.info_Wnone {
+	FONT-WEIGHT: normal
+}
+#graph {
+	TEXT-ALIGN: left; MARGIN-TOP: 10px; WIDTH: 794px; BACKGROUND: #ffffff
+}
+.DataTable {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 1px; MARGIN-TOP: 10px; PADDING-LEFT: 1px; WIDTH:794px; PADDING-RIGHT: 1px; BACKGROUND: #bbbbbb; PADDING-TOP: 1px
+}
+.DataTable_title {
+	BACKGROUND: #cfcfcf; FONT-WEIGHT: bold
+}
+.DataTable_body {
+	BACKGROUND: #ffffff
+}
+.DataTable_body_L {
+	TEXT-ALIGN: left; PADDING-LEFT: 5px; BACKGROUND: #ffffff
+}
+.DataTable_body_R {
+	TEXT-ALIGN: right; PADDING-RIGHT: 5px; BACKGROUND: #ffffff
+}
+.Logout {
+	FONT-SIZE: 10px
+}
+.SubMenu {
+	PADDING-LEFT: 10px
+}
+.SubMenu_Select {
+	PADDING-LEFT: 10px; COLOR: #879300; FONT-WEIGHT: bold
+}
+.SubMenu A:link {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+.SubMenu A:visited {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+.SubMenu A:hover {
+	COLOR: #879300; TEXT-DECORATION: none
+}
+.SubMenu A:active {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+.PageNum {
+	COLOR: #666666
+}
+.PageNum_Select {
+	COLOR: #879300; FONT-WEIGHT: bold
+}
+.PageNum A:link {
+	COLOR: #666666; TEXT-DECORATION: none
+}
+.PageNum A:visited {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+.PageNum A:hover {
+	COLOR: #879300; TEXT-DECORATION: none
+}
+.PageNum A:active {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+.SM_Notice {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #e2e2e2; COLOR: #666666; FONT-SIZE: 11px; PADDING-TOP: 5px
+}
+.SWVer {
+	TEXT-ALIGN: right; PADDING-RIGHT: 10px; COLOR: #a8a8a8; FONT-SIZE: 10px; VERTICAL-ALIGN: top; FONT-WEIGHT: bold; PADDING-TOP: 10px
+}
+.Login_Text {
+	PADDING-LEFT: 5px; PADDING-RIGHT: 5px; COLOR: #999999; FONT-SIZE: 10px; FONT-WEIGHT: bold
+}
+.Login_Info {
+	LINE-HEIGHT: 140%; PADDING-LEFT: 45px; PADDING-RIGHT: 5px; COLOR: #999999; FONT-SIZE: 10px; PADDING-TOP: 30px
+}
+.Member_Register {
+	TEXT-ALIGN: right; PADDING-RIGHT: 5px; HEIGHT: 30px; COLOR: #555555; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.ContentsTitle {
+	PADDING-LEFT: 3px; PADDING-RIGHT: 5px; WHITE-SPACE: nowrap; COLOR: #000000; FONT-SIZE: 16px
+}
+.ContentsNavi {
+	TEXT-ALIGN: right; WIDTH: 100%; PADDING-RIGHT: 5px; WHITE-SPACE: nowrap; COLOR: #666666; FONT-SIZE: 10px
+}
+.ContentsNavi_Bold {
+	COLOR: #333333; FONT-SIZE: 10px; FONT-WEIGHT: bold
+}
+.calendar_Tbasic {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; BORDER-TOP: #e9e9e9 1px solid; FONT-WEIGHT: bold; PADDING-TOP: 1px
+}
+.calendar_Tred {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; COLOR: #df120f; BORDER-TOP: #e9e9e9 1px solid; FONT-WEIGHT: bold; PADDING-TOP: 1px
+}
+.calendar_Tblue {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; COLOR: #2d9be6; BORDER-TOP: #e9e9e9 1px solid; FONT-WEIGHT: bold; PADDING-TOP: 1px
+}
+.calendar_Bbasic {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; BORDER-TOP: #e9e9e9 1px solid; PADDING-TOP: 1px
+}
+.calendar_Bred {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; COLOR: #df120f; BORDER-TOP: #e9e9e9 1px solid; PADDING-TOP: 1px
+}
+.calendar_Bblue {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; COLOR: #2d9be6; BORDER-TOP: #e9e9e9 1px solid; PADDING-TOP: 1px
+}
+.calendar_bar {
+	WIDTH: 1px; BACKGROUND: url(../TUR/img/calendar/bar.gif) no-repeat 50% top; FONT-SIZE: 1px
+}
+.layer_clr {
+	BORDER-BOTTOM: #ff6600 1px solid; BORDER-LEFT: #ff6600 1px solid; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #ffd5ab; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 9px; BORDER-TOP: #ff6600 1px solid; BORDER-RIGHT: #ff6600 1px solid; PADDING-TOP: 0px
+}
+
+/* TOP LINK ===================================================================================================================================*/
+      
+
+       
+        .cb_cookieuser_navbar { position: relative; top:0px; padding-right: 3px; margin: 0pt; }
+        .cb_cookieuser_navbar_text {display: inline; position: relative; top:2px; margin-left: 2.5px; font-weight: bold;}             
+        .floatcontainer { text-align: left; }
+        .toplinks { position: fixed; right: 0pt; top: 0pt; color: rgb(255, 255, 255); 
+                    font: 11px Arial,Tahoma,Calibri,Verdana,Geneva,sans-serif; 
+                   text-align: right;
+                   background: url("../../images/toplink_bg.png") repeat-x scroll left top transparent; 
+                   width: 100%; 
+                   height: 22px; 
+                   z-index: 1000; }        
+        .toplinks ul.nouser { float: right; list-style-type: none; width: 40%; margin-right: 10px; z-index: 1000; }            
+        .toplinks ul.nouser li { display: inline; margin-left: 5px; position: relative; top: 2.5px; color: rgb(255, 255, 255); float: right; }
+        .toplinks ul.nouser li a { clear: none; color: rgb(255, 255, 255); }
+        .toplinks ul.nouser li a { position: relative; padding: 6px 5px 0pt; height: 19px; font-weight: bold; font-size: 11px; }
+        .toplinks ul.nouser li a { margin-left: 2.5px; }
+        .toplinks ul.nouser li a:hover { color: rgb(255, 255, 255); }
+        .registertop { padding-top: 2px; }                       
+        .toplinks form { text-align: left; width: auto; float: right; clear: left; }
+        .toplinks .logindetails { color: rgb(255, 255, 255); padding: 0pt; height: 26px; float: left; }
+        .toplinks form input { margin: 3px 0pt 0pt; vertical-align: baseline; font-size: 10px; padding: 1px; border: 0pt none; }
+        .toplinks form input.default-value { color: rgb(255, 255, 255); }
+        .toplinks .remember { margin: 0pt 0pt 0pt 5px; font-size: 9px; clear: none; width: 235px ! important; }
+        .toplinks .remember input { vertical-align: baseline; }
+        .toplinks a:link, .toplinks a:visited { color: rgb(255, 255, 255); text-decoration: none; }
+        .toplinks input.loginbutton { font-size: 10px; padding: 0pt; background: url("../../images/login.jpg") no-repeat scroll center center transparent; width: 69px; height: 14px; color: rgb(237, 161, 55); }
+        .header hr, .header h2 { display: none; }              
+        #navbar_username { background: none repeat scroll 0% 0% #777777; color: rgb(25, 255); padding-left: 2px; }
+        #navbar_password { background: none repeat scroll 0% 0% #777777; color: rgb(255, 255, 255); padding-left: 2px; }       

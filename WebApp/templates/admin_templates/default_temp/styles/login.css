@@ -1,0 +1,238 @@
+﻿body, html {
+	padding:0px;
+	margin:0px;
+	width:100%;
+	height:100%;
+}
+
+img {
+	border:0px;
+}
+
+form, div {
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+
+body {
+	font:70% Arial, Tahoma, Verdana;
+	color:#383737;		
+	background:URL('../images/login/login_bg.png') repeat scroll 0 0 transparent;
+}
+
+h1 {
+	margin-top:0px;
+	padding-top:15px;
+}
+
+h2.head-alt
+{
+    background-color: #3C6880;
+    color: #FFFFFF;
+    text-shadow: 1px 0 1px #333333;
+    border-bottom-right-radius: 12px;
+    box-shadow: 3px 6px 6px #DDDDDD;
+    float: left;    
+    font-size: 1.2em;    
+    font-weight: bold;
+    margin-right: 10px;    
+    padding: 5px 10px;
+    margin:0px 0px 25px 0px;
+    /*padding: 12px 30px 10px 20px;
+    font-size: 1.6em;*/
+}
+ul.tabs {
+    display: inline;
+    float: right;
+    list-style: none outside none;
+    margin: 0px;
+    padding: 0px;
+}
+ul.tabs li {
+    float: left;
+}
+ul.tabs li a {
+    background-color: #F5F5F5;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: -3px 3px 8px #CCCCCC;
+    color: #666666;
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 5px 12px;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    transition: all 0.3s ease-out 0s;
+}
+
+
+ul.tabs li a.current {
+    background-color: #DDDDDD;
+    box-shadow: -1px 1px 0 #FFFFFF;
+    color: #777777;
+    text-shadow: 1px 1px 1px #DDDDDD;
+}
+.login-container {
+	width:400px;
+	margin:auto;
+	text-align:center;	
+}
+
+.panes {	
+	border:1px solid #CCCCCC;
+	height:240px;
+	width:400px;	
+	text-align:left;
+	background:#F9F9F9;
+}
+
+.header-icon {
+	float:left;
+	margin-top:12px;
+	margin-left:17px;
+	height:30px; 
+	line-height:30px; 
+	color:white;
+}
+
+div#login fieldset {
+    background-image: url("../images/login/user-login.png");
+    background-position: 30px 20px;
+    background-repeat: no-repeat;
+    clear: both;
+    margin: 0;
+    padding: 10px 20px 0 140px;
+}
+
+fieldset
+{
+    border: 0 none;
+    display: block;
+}
+
+div#login legend {
+    border: 0 none;
+    color: #999999;
+    font-size: 0.86em;
+    margin: 0;
+    padding: 16px 0 3px;
+}
+
+fieldset legend
+{
+    box-shadow: 0 1px 0 #E0DFDF;
+    display: block;
+     font-weight: bold;
+     text-shadow: 1px 1px 0 #FFFFFF;
+    width: 100%;
+}
+
+div#login label {
+    font-size: 0.95em;
+    margin: 0;
+}
+label
+{
+    color:#666666;
+    text-shadow:1px 1px 0 #FFFFFF;
+}
+.pane
+{
+    padding:0;
+    margin:0;
+    height:200px
+}
+.pane input[type="text"], .pane input[type="password"] {
+    border: 1px solid #D7D7D7;
+    box-shadow: 0 0 0 2px #EBEBEB;
+    color: #858585;
+    display: inline-block;
+    font-size: 11px;    
+    margin: 3px 0px 5px 0px;
+    padding: 4px 27px 4px 9px;
+    width: 198px;
+    /*background:url(../images/login/input-tile.gif) repeat-x scroll;    */
+}
+
+
+.pane .loginUsername {
+    background: url("../images/login/loginUsername.png") no-repeat scroll 213px 7px #FBFBFB;
+}
+
+.pane .loginPassword {
+    background: url("../images/login/loginLock.png") no-repeat scroll 214px 7px #FBFBFB;
+}
+
+.pane .logControl:after {
+    clear: both;
+    content: "";
+    display: block;
+    margin-right:3px;
+}
+
+.pane .logControl {
+   /* margin-top: 15px;*/
+}
+
+.pane .logControl .memory {
+    float: left; 
+}
+
+.logControl input[type="submit"] {
+    float: right;
+}
+
+.logControl .fleft
+{
+    float:left;
+}
+.logControl .fright
+{
+    float:right;
+}
+
+.button {
+    background: -moz-linear-gradient(center top , #5BA5CB 0%, #3A70AB 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #3E76AF;
+    box-shadow: 0 1px 2px 0 #66B2D2 inset;
+    margin-right: 4px;
+    padding: 5px;    
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 14px;
+    text-shadow: 0 -1px #6F6F6F;
+}
+
+.pane label[for*="chkRemmberMe"] {
+    float: left;
+    padding-left: 22px;
+}
+
+.pane  div.checker {
+    box-shadow: 0 1px 0 #FFFFFF;
+    display: block;
+    float: left;
+    height: 16px;
+    margin-right: 8px;
+    position: relative;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.pane div.checker {
+    display: inline-block;
+    float: left;
+    height: 16px;
+    width: 16px;    
+}
+
+.pane .memory .checkbox_text
+{
+    float:left;    
+    padding:2px;
+}

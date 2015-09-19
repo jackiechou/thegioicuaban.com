@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>jQuery Banner Rotator</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="bannerRotator.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      bannerRotator('#bannerRotator', 500, 5000, true);
+    });
+  </script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div id="bannerRotator">
+    <ul>
+      <li>
+	    <a href="#">
+	      <img src="banners/banner-1.png" alt="bannerImage1">
+		</a>
+	  </li>
+      <li>
+	    <a href="#">
+	      <img src="banners/banner-2.png" alt="bannerImage2">
+		</a
+	  </li>
+      <li>
+	    <a href="#">
+	      <img src="banners/banner-3.png" alt="bannerImage3">
+		</a
+	  </li>         
+    </ul>
+  </div>
+</body>
+</html>

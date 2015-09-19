@@ -1,0 +1,79 @@
+﻿#s5_accordion_menu {
+	margin:0px;
+}
+
+#s5_accordion_menu h3.s5_am_parent {
+	cursor: pointer;
+	font-size: 12px;
+	background:url(../images/s5_accordion_menu_back_not.png) no-repeat top right;
+	height:33px;
+	padding-right:24px;
+	line-height:33px;
+	margin:2px;
+	margin-left:-10px;
+	margin-right:-10px;
+	}
+	
+#s5_accordion_menu h3.s5_am_open {
+	background:url(../images/s5_accordion_menu_back_act.png) no-repeat top right;
+	padding-right:24px;
+	}
+	
+#s5_accordion_menu h3.s5_am_not_parent {
+	cursor: pointer;
+	font-size: 12px;
+	background:url(../images/s5_accordion_menu_back.png) no-repeat top right;
+	height:33px;
+	line-height:33px;
+	padding-right:24px;
+	margin:2px;
+	margin-left:-10px;
+	margin-right:-10px;
+	}
+	
+#s5_accordion_menu h3.s5_am_toggler div {
+	margin:0px;
+	padding:0px;	}
+
+#s5_accordion_menu h3.s5_am_toggler a.mainlevel {	
+	line-height:32px;
+	width:auto;
+	border:none;
+	padding:0px;
+	margin:0px;	}
+
+div.s5_accordion_menu_element li {	
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	padding-left:25px;	}
+	
+div.s5_accordion_menu_element li a {	
+	font-size:11px;	}
+	
+div.s5_accordion_menu_element {
+	width:auto;
+}
+	
+ul.s5_am_innermenu {
+	padding-bottom:0px;
+	padding-left:0px;
+	margin-left:0px;
+	margin-top:0px;	}
+
+#s5_accordion_menu h3 span img {
+	padding-top:7px;
+	padding-right:8px;}
+	
+ul.s5_am_innermenu a:hover {
+	text-decoration:underline;
+}
+
+ul.s5_am_innermenu li {
+padding-left:15px;
+}
+
+ul.s5_am_innermenu span {
+height:12px;
+}
+

@@ -1,0 +1,30 @@
+﻿
+.button.red {
+    background: -moz-linear-gradient(center bottom , #E83D0E 0%, #F07C5B 100%) repeat scroll 0 0 #E83D0E;
+    border: 1px solid #E83D0E;
+}
+.button.small {
+    font-size: 11px;
+    line-height: 11px;
+    padding: 8px 9px 7px;
+}
+.button {
+    background: -moz-linear-gradient(center bottom , #606A6D 0%, #909799 100%) repeat scroll 0 0 #606A6D;
+    border: 1px solid #606A6D;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset !important;
+    color: #FFFFFF !important;
+    width: auto !important;
+}
+.button {
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: bold;
+    margin: 0 6px 0 0;
+    text-decoration: none;
+}
+a {
+    color: #E83D0F;
+    cursor: pointer;
+    text-decoration: none;
+}

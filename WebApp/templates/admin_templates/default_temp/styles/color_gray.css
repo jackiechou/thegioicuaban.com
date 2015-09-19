@@ -1,0 +1,141 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	color:#454545;
+	}
+/* ================================= */	
+.background
+{
+    background:none !important;
+    border:none !important;    
+}
+
+.staticMenuItemStyle:hover, .dynamicMenuItemStyle:hover
+{
+    background:none !important;
+}
+/* ================================= */
+		
+a, a:link{	text-decoration:none; color:#FFFFFF;/*color:#E8E8E8;*/}
+a:hover, a:actived{ text-decoration: none; color:#FFFFFF !important;}
+
+a.gray, a.gray:link{	text-decoration:none; color:#CCCCCC;}
+a.gray:hover, a.gray:actived{ text-decoration: none; color:#CCCCCC !important;}
+
+a.red, a.red:link{	text-decoration:none; color:#A42000;}
+a.red:hover, a.red:actived{ text-decoration: none; color:#A42000 !important;}
+
+a.black, a.black:link{	text-decoration:none; color:#000000;}
+a.black:hover, a.black:actived{ text-decoration: none; color:#000000 !important;}
+
+.nar_bar{	
+	background: url("../images/bg/progress_overlay.png") repeat scroll 0 0%, linear-gradient(to bottom, #F4F4F4 0%, #F2F2F2 100%) repeat scroll 0 0 transparent;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) inset;
+}
+
+.nar_bar ul li{
+	border: 1px solid #E0E0E0;
+	background:url("../images/bg/progress_overlay.png") repeat scroll 0 0%, linear-gradient(to bottom, #F4F4F4 0%, #F2F2F2 100%) repeat scroll 0 0 transparent;
+}
+
+.nar_bar ul li:hover
+{    
+	background-color:#921D00;
+	background-image:-moz-linear-gradient(#AD2200,#921D00);
+}
+
+.nar_bar ul li a,.nar_bar ul li a:link{
+	color:#7C7C7C;	
+}
+
+.nar_bar ul li a:hover{
+	color:#FFFFFF;
+}
+
+.nar_bar ul li.active a,.nar_bar ul li.active a:link{
+	color:#FFFFFF;	
+}
+
+.main .commontool h3
+{    
+    color:#921D00;
+}
+
+.toolbar .btn{
+	border-left: 1px solid #666666;
+    border-right: 1px solid #414141;
+    border-top: 1px solid #C8C8C8;
+    border-bottom: 1px solid #9D9C9C;
+    background-image: -webkit-gradient(linear,0 top,0 bottom,from(#AD2200),to(#921D00));
+}
+
+.toolbar a.btn
+{
+   background:#000000;
+}
+
+.toolbar .btn:hover{
+	background-color:#C02600;background-image:-webkit-gradient(linear,0 top,0 bottom,from(#AD2200),to(#C02600));
+	}
+
+
+.nar_bar ul li.active, .nar_bar ul li.active a:hover, .nar_bar ul li.active a:focus, .nar_bar ul li.active{		
+	background:#E82D00;
+	background-image:-moz-linear-gradient(#AD2200,#C02600);
+	color:#000;
+}
+
+table.table_list{
+	/*border-color:#EBC5D2;*/
+}
+
+table.table_list th{	
+	/*background:none repeat scroll 0 0 #4A5A2A;#666633*/
+	background:none repeat scroll 0 0 #CCCC99;
+	border-bottom:1px solid #666633;
+	border-left:1px solid #666633;
+	border-right:1px solid #666633;
+	color:#666633;
+}
+
+table.table_list tbody tr.row0:hover,table.table_list tbody tr.row1:hover{
+	background:#CCCCCC;
+}
+
+.box{
+	border:1px solid #EBC5D2;	
+}
+
+.box .box_title{
+	background:none repeat scroll 0 0 #EBC5D2;
+	border-bottom:1px solid #E06B97;
+	border-left:1px solid #FFFFFF;
+	color:#15527E;
+}
+/*
+.button, .checkbox, .textbox, .combobox, .text_area{	 	
+	border:1px solid #EBC5D2;
+	
+}
+*/
+.button{	 	
+	color:#FFF;
+	font-weight:bold;
+	background-image:-moz-linear-gradient(#AD2200,#921D00);
+}
+
+.button:hover{	
+	background-image:-moz-linear-gradient(#AD2200, #CCCCCC,#C02600);
+	box-shadow:0 1px 0 0 #E37DA2;
+}
+
+.footer{
+	border-top:2px solid #CCCCCC;
+	background:url("../images/bg/pattern9.png") repeat scroll 0 0 #F5F5F5;
+	color:#000000;
+	/*background-image:-moz-linear-gradient(#CCCCCC,#921D00);*/
+}
+
+.company_info{
+	color:#FFFFFF;	
+}

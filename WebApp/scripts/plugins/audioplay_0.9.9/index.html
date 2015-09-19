@@ -1,0 +1,92 @@
+<html>
+<head>
+
+<style type="text/css">
+<!--
+	body, a:link, a:visited
+	{
+    		background-color:	#173717;
+    		padding:		0px;
+    		margin:		0px;
+    		color:		#d0d0d0;
+    		font-family:	Verdana;
+-->
+</style>
+
+<!-- example javascript code used to controlling AudioPlay players -->
+<script language="javascript">
+	function getPlayer(movieName)
+	{
+		if (navigator.appName.indexOf("Microsoft") != -1) 
+		{
+			return window[movieName];
+        	} 
+		else 
+		{
+			return document[movieName];
+        	}
+     	}
+
+	function play1()
+	{
+		getPlayer('player1').playMusic();
+	}
+	
+	function stop1()
+        {
+                getPlayer('player1').stopMusic();
+        }
+
+	function play2()
+        {
+                getPlayer('player2').playMusic();
+        }
+         
+        function pause2()
+        {
+                getPlayer('player2').pauseMusic();
+        }
+
+</script>
+</head>
+
+<body style="background-color: #271010; color: #d0d0d0;">
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="30" height="30" id="player1">
+			<PARAM NAME=movie VALUE="audioplay.swf?playerid=1">
+			<PARAM NAME=quality VALUE=high>
+			<PARAM NAME=wmode VALUE="transparent">
+			<PARAM NAME="allowScriptAccess" value="always" />
+			    <embed wmode="transparent" src="audioplay.swf?playerid=1" quality=high width="30" height="30" name="player1" allowScriptAccess="always"
+				align="" TYPE="application/x-shockwave-flash"
+				pluginspage="http://www.macromedia.com/go/getflashplayer">
+			    </embed>
+		</object>
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="30" height="30" id="player2">
+			<PARAM NAME=movie VALUE="audioplay.swf?playerid=2">
+			<PARAM NAME=quality VALUE=high>
+			<PARAM NAME=wmode VALUE="transparent">
+			<PARAM NAME="allowScriptAccess" value="always" />
+			    <embed wmode="transparent" src="audioplay.swf?playerid=2" quality=high width="30" height="30" name="player2" allowScriptAccess="always"
+				align="" TYPE="application/x-shockwave-flash"
+				pluginspage="http://www.macromedia.com/go/getflashplayer">
+			    </embed>
+		</object>
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="30" height="30" id="player3">
+                        <PARAM NAME=movie VALUE="audioplay.swf?playerid=3">
+                        <PARAM NAME=quality VALUE=high>
+                        <PARAM NAME=wmode VALUE="transparent">
+                        <PARAM NAME="allowScriptAccess" value="always" />
+                            <embed wmode="transparent" src="audioplay.swf?playerid=3" quality=high width="30" height="30" name="player3" allowScriptAccess="always"
+                                align="" TYPE="application/x-shockwave-flash"
+                                pluginspage="http://www.macromedia.com/go/getflashplayer">
+                            </embed>
+                </object>
+
+		<p>Example AudioPlay JavaScript controlling:</p>
+		<p>Click<strong onclick="play1()" style="cursor: pointer;"> here </strong>to play player #1.</p>
+		<p>Click<strong onclick="stop1()" style="cursor: pointer;"> here </strong>to stop player #1.</p>
+		<br>
+		<p>Click<strong onclick="play2()" style="cursor: pointer;"> here </strong>to play player #2.</p>
+                <p>Click<strong onclick="pause2()" style="cursor: pointer;"> here </strong>to pause player #2.</p>
+</body>
+</html>
