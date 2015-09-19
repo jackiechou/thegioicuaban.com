@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ArticleModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ArticleModelStoreContainer">
+          <EntitySet Name="ArticleCategories" EntityType="ArticleModel.Store.ArticleCategories" store:Type="Tables" Schema="Articles" />
+          <EntitySet Name="ArticleComments" EntityType="ArticleModel.Store.ArticleComments" store:Type="Tables" Schema="Articles" />
+          <EntitySet Name="Articles" EntityType="ArticleModel.Store.Articles" store:Type="Tables" Schema="Articles" />
+          <EntitySet Name="AddressType" EntityType="ArticleModel.Store.AddressType" store:Type="Tables" Schema="Person" />
+        </EntityContainer>
+        <EntityType Name="ArticleCategories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="PortalId" Type="int" />
+          <Property Name="CultureCode" Type="nchar" MaxLength="10" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="CategoryCode" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="150" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Depth" Type="int" />
+          <Property Name="Lineage" Type="nvarchar(max)" />
+          <Property Name="SortKey" Type="int" />
+          <Property Name="CategoryImage" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="NavigateUrl" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateAmended" Type="datetime" />
+          <Property Name="UserLog" Type="varchar" MaxLength="50" />
+          <Property Name="UserLastUpdated" Type="nvarchar" MaxLength="50" />
+          <Property Name="IPLog" Type="nvarchar" MaxLength="20" />
+          <Property Name="IPLastUpdated" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ArticleComments">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="ArticleId" Type="int" Nullable="false" />
+          <Property Name="CommentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommentName" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="CommentEmail" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="CommentText" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="IsReply" Type="bit" />
+          <Property Name="Publish" Type="char" MaxLength="1" />
+          <Property Name="DatePosted" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="UserLog" Type="uniqueidentifier" />
+          <Property Name="UserLastUpdated" Type="uniqueidentifier" />
+          <Property Name="IPLog" Type="varchar" MaxLength="30" />
+          <Property Name="IPLastUpdated" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Articles">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="PortalId" Type="int" />
+          <Property Name="ArticleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryCode" Type="varchar" MaxLength="20" />
+          <Property Name="CultureCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="400" />
+          <Property Name="Headline" Type="nvarchar" Nullable="false" MaxLength="400" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="400" />
+          <Property Name="Abstract" Type="nvarchar" MaxLength="500" />
+          <Property Name="FrontImage" Type="nvarchar" MaxLength="400" />
+          <Property Name="MainImage" Type="nvarchar" MaxLength="400" />
+          <Property Name="MainText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NavigateUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="Authors" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortKey" Type="int" Nullable="false" />
+          <Property Name="Tags" Type="nvarchar" MaxLength="400" />
+          <Property Name="Source" Type="nvarchar" MaxLength="100" />
+          <Property Name="TotalRates" Type="int" />
+          <Property Name="TotalViews" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateAmended" Type="datetime" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="PostedBy" Type="uniqueidentifier" />
+          <Property Name="UpdatedBy" Type="uniqueidentifier" />
+          <Property Name="IPLog" Type="varchar" MaxLength="30" />
+          <Property Name="IPLastUpdated" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="AddressType">
+          <Key>
+            <PropertyRef Name="AddressTypeId" />
+          </Key>
+          <Property Name="AddressTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <Function Name="ArticleCategories_GetAllChildrenNodesOfSelectedNode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Articles">
+          <Parameter Name="CategoryCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ArticleCategories_GetAllParentNodesOfSelectedNode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Articles">
+          <Parameter Name="CategoryCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ArticleComments_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Articles" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArticleModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ArticleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArticleCategories" EntityType="ArticleModel.ArticleCategory" />
+          <EntitySet Name="Articles" EntityType="ArticleModel.Article" />
+          <EntitySet Name="AddressTypes" EntityType="ArticleModel.AddressType" />
+          <FunctionImport Name="ArticleCategories_GetAllParentNodesOfSelectedNode" EntitySet="ArticleCategories" ReturnType="Collection(ArticleModel.ArticleCategory)">
+          <Parameter Name="CategoryCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ArticleCategories_GetAllChildrenNodesOfSelectedNode" EntitySet="ArticleCategories" ReturnType="Collection(ArticleModel.ArticleCategory)">
+          <Parameter Name="CategoryCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="ArticleComments" EntityType="ArticleModel.ArticleComment" />
+          <FunctionImport Name="sp_ArticleComments_GetList" EntitySet="ArticleComments" ReturnType="Collection(ArticleModel.ArticleComment)" />
+        </EntityContainer>
+        <EntityType Name="ArticleCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="PortalId" Type="Int32" />
+          <Property Name="CultureCode" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryCode" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Alias" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Depth" Type="Int32" />
+          <Property Name="Lineage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SortKey" Type="Int32" />
+          <Property Name="CategoryImage" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NavigateUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateAmended" Type="DateTime" />
+          <Property Name="UserLog" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserLastUpdated" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IPLog" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="IPLastUpdated" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="PortalId" Type="Int32" />
+          <Property Name="CultureCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="ArticleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryCode" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="Headline" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="Alias" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="Abstract" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="FrontImage" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="MainImage" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="MainText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NavigateUrl" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Authors" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SortKey" Type="Int32" Nullable="false" />
+          <Property Name="Tags" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="Source" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="TotalRates" Type="Int32" />
+          <Property Name="TotalViews" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="DateAmended" Type="DateTime" />
+          <Property Name="Status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="PostedBy" Type="Guid" />
+          <Property Name="UpdatedBy" Type="Guid" />
+          <Property Name="IPLog" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="IPLastUpdated" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="AddressType">
+          <Key>
+            <PropertyRef Name="AddressTypeId" />
+          </Key>
+          <Property Name="AddressTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="ArticleComment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Type="Int32" Name="ArticleId" Nullable="false" />
+          <Property Type="Int32" Name="CommentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CommentName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CommentEmail" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CommentText" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsReply" />
+          <Property Type="String" Name="Publish" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="DatePosted" />
+          <Property Type="DateTime" Name="DateUpdated" />
+          <Property Type="Guid" Name="UserLog" />
+          <Property Type="Guid" Name="UserLastUpdated" />
+          <Property Type="String" Name="IPLog" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IPLastUpdated" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArticleModelStoreContainer" CdmEntityContainer="ArticleEntities">
+          <EntitySetMapping Name="ArticleCategories"><EntityTypeMapping TypeName="ArticleModel.ArticleCategory"><MappingFragment StoreEntitySet="ArticleCategories">
+            <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+            <ScalarProperty Name="CultureCode" ColumnName="CultureCode" />
+            <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+            <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+            <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+            <ScalarProperty Name="Alias" ColumnName="Alias" />
+            <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+            <ScalarProperty Name="Depth" ColumnName="Depth" />
+            <ScalarProperty Name="Lineage" ColumnName="Lineage" />
+            <ScalarProperty Name="SortKey" ColumnName="SortKey" />
+            <ScalarProperty Name="CategoryImage" ColumnName="CategoryImage" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="NavigateUrl" ColumnName="NavigateUrl" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+            <ScalarProperty Name="DateAmended" ColumnName="DateAmended" />
+            <ScalarProperty Name="UserLog" ColumnName="UserLog" />
+            <ScalarProperty Name="UserLastUpdated" ColumnName="UserLastUpdated" />
+            <ScalarProperty Name="IPLog" ColumnName="IPLog" />
+            <ScalarProperty Name="IPLastUpdated" ColumnName="IPLastUpdated" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Articles"><EntityTypeMapping TypeName="ArticleModel.Article"><MappingFragment StoreEntitySet="Articles">
+            <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+            <ScalarProperty Name="CultureCode" ColumnName="CultureCode" />
+            <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+            <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Headline" ColumnName="Headline" />
+            <ScalarProperty Name="Alias" ColumnName="Alias" />
+            <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+            <ScalarProperty Name="FrontImage" ColumnName="FrontImage" />
+            <ScalarProperty Name="MainImage" ColumnName="MainImage" />
+            <ScalarProperty Name="MainText" ColumnName="MainText" />
+            <ScalarProperty Name="NavigateUrl" ColumnName="NavigateUrl" />
+            <ScalarProperty Name="Authors" ColumnName="Authors" />
+            <ScalarProperty Name="SortKey" ColumnName="SortKey" />
+            <ScalarProperty Name="Tags" ColumnName="Tags" />
+            <ScalarProperty Name="Source" ColumnName="Source" />
+            <ScalarProperty Name="TotalRates" ColumnName="TotalRates" />
+            <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+            <ScalarProperty Name="DateAmended" ColumnName="DateAmended" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="PostedBy" ColumnName="PostedBy" />
+            <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+            <ScalarProperty Name="IPLog" ColumnName="IPLog" />
+            <ScalarProperty Name="IPLastUpdated" ColumnName="IPLastUpdated" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AddressTypes"><EntityTypeMapping TypeName="ArticleModel.AddressType"><MappingFragment StoreEntitySet="AddressType">
+            <ScalarProperty Name="AddressTypeId" ColumnName="AddressTypeId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ArticleCategories_GetAllParentNodesOfSelectedNode" FunctionName="ArticleModel.Store.ArticleCategories_GetAllParentNodesOfSelectedNode" />
+          <FunctionImportMapping FunctionImportName="ArticleCategories_GetAllChildrenNodesOfSelectedNode" FunctionName="ArticleModel.Store.ArticleCategories_GetAllChildrenNodesOfSelectedNode" />
+          <EntitySetMapping Name="ArticleComments">
+            <EntityTypeMapping TypeName="ArticleModel.ArticleComment">
+              <MappingFragment StoreEntitySet="ArticleComments">
+                <ScalarProperty Name="IPLastUpdated" ColumnName="IPLastUpdated" />
+                <ScalarProperty Name="IPLog" ColumnName="IPLog" />
+                <ScalarProperty Name="UserLastUpdated" ColumnName="UserLastUpdated" />
+                <ScalarProperty Name="UserLog" ColumnName="UserLog" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
+                <ScalarProperty Name="Publish" ColumnName="Publish" />
+                <ScalarProperty Name="IsReply" ColumnName="IsReply" />
+                <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+                <ScalarProperty Name="CommentEmail" ColumnName="CommentEmail" />
+                <ScalarProperty Name="CommentName" ColumnName="CommentName" />
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ArticleComments_GetList" FunctionName="ArticleModel.Store.sp_ArticleComments_GetList" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ArtilceModel">
+        <EntityTypeShape EntityType="ArticleModel.ArticleCategory" Width="1.5" PointX="0.75" PointY="0.75" Height="4.8648079427083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArticleModel.Article" Width="1.5" PointX="4.75" PointY="0.75" Height="5.8263151041666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArticleModel.AddressType" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArticleModel.ArticleComment" Width="1.5" PointX="0.75" PointY="6.75" Height="3.5186979166666665" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

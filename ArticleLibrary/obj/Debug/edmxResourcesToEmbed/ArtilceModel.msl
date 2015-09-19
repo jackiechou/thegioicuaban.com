@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ArticleModelStoreContainer" CdmEntityContainer="ArticleEntities">
+    <EntitySetMapping Name="ArticleCategories">
+      <EntityTypeMapping TypeName="ArticleModel.ArticleCategory">
+        <MappingFragment StoreEntitySet="ArticleCategories">
+          <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+          <ScalarProperty Name="CultureCode" ColumnName="CultureCode" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Depth" ColumnName="Depth" />
+          <ScalarProperty Name="Lineage" ColumnName="Lineage" />
+          <ScalarProperty Name="SortKey" ColumnName="SortKey" />
+          <ScalarProperty Name="CategoryImage" ColumnName="CategoryImage" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NavigateUrl" ColumnName="NavigateUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateAmended" ColumnName="DateAmended" />
+          <ScalarProperty Name="UserLog" ColumnName="UserLog" />
+          <ScalarProperty Name="UserLastUpdated" ColumnName="UserLastUpdated" />
+          <ScalarProperty Name="IPLog" ColumnName="IPLog" />
+          <ScalarProperty Name="IPLastUpdated" ColumnName="IPLastUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="ArticleModel.Article">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+          <ScalarProperty Name="CultureCode" ColumnName="CultureCode" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Headline" ColumnName="Headline" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+          <ScalarProperty Name="FrontImage" ColumnName="FrontImage" />
+          <ScalarProperty Name="MainImage" ColumnName="MainImage" />
+          <ScalarProperty Name="MainText" ColumnName="MainText" />
+          <ScalarProperty Name="NavigateUrl" ColumnName="NavigateUrl" />
+          <ScalarProperty Name="Authors" ColumnName="Authors" />
+          <ScalarProperty Name="SortKey" ColumnName="SortKey" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="TotalRates" ColumnName="TotalRates" />
+          <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateAmended" ColumnName="DateAmended" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PostedBy" ColumnName="PostedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IPLog" ColumnName="IPLog" />
+          <ScalarProperty Name="IPLastUpdated" ColumnName="IPLastUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddressTypes">
+      <EntityTypeMapping TypeName="ArticleModel.AddressType">
+        <MappingFragment StoreEntitySet="AddressType">
+          <ScalarProperty Name="AddressTypeId" ColumnName="AddressTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ArticleCategories_GetAllParentNodesOfSelectedNode" FunctionName="ArticleModel.Store.ArticleCategories_GetAllParentNodesOfSelectedNode" />
+    <FunctionImportMapping FunctionImportName="ArticleCategories_GetAllChildrenNodesOfSelectedNode" FunctionName="ArticleModel.Store.ArticleCategories_GetAllChildrenNodesOfSelectedNode" />
+    <EntitySetMapping Name="ArticleComments">
+      <EntityTypeMapping TypeName="ArticleModel.ArticleComment">
+        <MappingFragment StoreEntitySet="ArticleComments">
+          <ScalarProperty Name="IPLastUpdated" ColumnName="IPLastUpdated" />
+          <ScalarProperty Name="IPLog" ColumnName="IPLog" />
+          <ScalarProperty Name="UserLastUpdated" ColumnName="UserLastUpdated" />
+          <ScalarProperty Name="UserLog" ColumnName="UserLog" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="IsReply" ColumnName="IsReply" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+          <ScalarProperty Name="CommentEmail" ColumnName="CommentEmail" />
+          <ScalarProperty Name="CommentName" ColumnName="CommentName" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_ArticleComments_GetList" FunctionName="ArticleModel.Store.sp_ArticleComments_GetList" />
+  </EntityContainerMapping>
+</Mapping>

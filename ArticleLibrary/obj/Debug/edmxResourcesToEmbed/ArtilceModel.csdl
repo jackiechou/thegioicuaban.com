@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArticleModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ArticleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ArticleCategories" EntityType="ArticleModel.ArticleCategory" />
+    <EntitySet Name="Articles" EntityType="ArticleModel.Article" />
+    <EntitySet Name="AddressTypes" EntityType="ArticleModel.AddressType" />
+    <FunctionImport Name="ArticleCategories_GetAllParentNodesOfSelectedNode" EntitySet="ArticleCategories" ReturnType="Collection(ArticleModel.ArticleCategory)">
+      <Parameter Name="CategoryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ArticleCategories_GetAllChildrenNodesOfSelectedNode" EntitySet="ArticleCategories" ReturnType="Collection(ArticleModel.ArticleCategory)">
+      <Parameter Name="CategoryCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ArticleComments" EntityType="ArticleModel.ArticleComment" />
+    <FunctionImport Name="sp_ArticleComments_GetList" EntitySet="ArticleComments" ReturnType="Collection(ArticleModel.ArticleComment)" />
+  </EntityContainer>
+  <EntityType Name="ArticleCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="PortalId" Type="Int32" />
+    <Property Name="CultureCode" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryCode" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="Alias" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Depth" Type="Int32" />
+    <Property Name="Lineage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SortKey" Type="Int32" />
+    <Property Name="CategoryImage" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NavigateUrl" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateAmended" Type="DateTime" />
+    <Property Name="UserLog" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserLastUpdated" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IPLog" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="IPLastUpdated" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="PortalId" Type="Int32" />
+    <Property Name="CultureCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="ArticleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryCode" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="Headline" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="Alias" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="Abstract" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="FrontImage" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="MainImage" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="MainText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NavigateUrl" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Authors" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SortKey" Type="Int32" Nullable="false" />
+    <Property Name="Tags" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="Source" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TotalRates" Type="Int32" />
+    <Property Name="TotalViews" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateAmended" Type="DateTime" />
+    <Property Name="Status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="PostedBy" Type="Guid" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="IPLog" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="IPLastUpdated" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="AddressType">
+    <Key>
+      <PropertyRef Name="AddressTypeId" />
+    </Key>
+    <Property Name="AddressTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="ArticleComment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Type="Int32" Name="ArticleId" Nullable="false" />
+    <Property Type="Int32" Name="CommentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CommentName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CommentEmail" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CommentText" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsReply" />
+    <Property Type="String" Name="Publish" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="DatePosted" />
+    <Property Type="DateTime" Name="DateUpdated" />
+    <Property Type="Guid" Name="UserLog" />
+    <Property Type="Guid" Name="UserLastUpdated" />
+    <Property Type="String" Name="IPLog" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IPLastUpdated" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

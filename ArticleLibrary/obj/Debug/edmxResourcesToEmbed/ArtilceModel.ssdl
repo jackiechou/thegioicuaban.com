@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArticleModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ArticleModelStoreContainer">
+    <EntitySet Name="ArticleCategories" EntityType="ArticleModel.Store.ArticleCategories" store:Type="Tables" Schema="Articles" />
+    <EntitySet Name="ArticleComments" EntityType="ArticleModel.Store.ArticleComments" store:Type="Tables" Schema="Articles" />
+    <EntitySet Name="Articles" EntityType="ArticleModel.Store.Articles" store:Type="Tables" Schema="Articles" />
+    <EntitySet Name="AddressType" EntityType="ArticleModel.Store.AddressType" store:Type="Tables" Schema="Person" />
+  </EntityContainer>
+  <EntityType Name="ArticleCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="PortalId" Type="int" />
+    <Property Name="CultureCode" Type="nchar" MaxLength="10" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="CategoryCode" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="150" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="Depth" Type="int" />
+    <Property Name="Lineage" Type="nvarchar(max)" />
+    <Property Name="SortKey" Type="int" />
+    <Property Name="CategoryImage" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="NavigateUrl" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateAmended" Type="datetime" />
+    <Property Name="UserLog" Type="varchar" MaxLength="50" />
+    <Property Name="UserLastUpdated" Type="nvarchar" MaxLength="50" />
+    <Property Name="IPLog" Type="nvarchar" MaxLength="20" />
+    <Property Name="IPLastUpdated" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ArticleComments">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="CommentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CommentName" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="CommentEmail" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="CommentText" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="IsReply" Type="bit" />
+    <Property Name="Publish" Type="char" MaxLength="1" />
+    <Property Name="DatePosted" Type="datetime" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="UserLog" Type="uniqueidentifier" />
+    <Property Name="UserLastUpdated" Type="uniqueidentifier" />
+    <Property Name="IPLog" Type="varchar" MaxLength="30" />
+    <Property Name="IPLastUpdated" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="PortalId" Type="int" />
+    <Property Name="ArticleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryCode" Type="varchar" MaxLength="20" />
+    <Property Name="CultureCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="Headline" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="400" />
+    <Property Name="Abstract" Type="nvarchar" MaxLength="500" />
+    <Property Name="FrontImage" Type="nvarchar" MaxLength="400" />
+    <Property Name="MainImage" Type="nvarchar" MaxLength="400" />
+    <Property Name="MainText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NavigateUrl" Type="nvarchar" MaxLength="500" />
+    <Property Name="Authors" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortKey" Type="int" Nullable="false" />
+    <Property Name="Tags" Type="nvarchar" MaxLength="400" />
+    <Property Name="Source" Type="nvarchar" MaxLength="100" />
+    <Property Name="TotalRates" Type="int" />
+    <Property Name="TotalViews" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateAmended" Type="datetime" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="PostedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="IPLog" Type="varchar" MaxLength="30" />
+    <Property Name="IPLastUpdated" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="AddressType">
+    <Key>
+      <PropertyRef Name="AddressTypeId" />
+    </Key>
+    <Property Name="AddressTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <Function Name="ArticleCategories_GetAllChildrenNodesOfSelectedNode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Articles">
+    <Parameter Name="CategoryCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ArticleCategories_GetAllParentNodesOfSelectedNode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Articles">
+    <Parameter Name="CategoryCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ArticleComments_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Articles" />
+</Schema>
