@@ -58,3 +58,6 @@ D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ArticleLibrary\bin\Debug\HtmlAgilit
 D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ArticleLibrary\obj\Debug\ArticleLibrary.csprojResolveAssemblyReference.cache
 D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ArticleLibrary\obj\Debug\ArticleLibrary.dll
 D:\PROJECTS\5Eagles\thegioicuaban.com\Source\ArticleLibrary\obj\Debug\ArticleLibrary.pdb
+D:\PROJECTS\5Eagles\thegioicuaban.com\ArticleLibrary\bin\Debug\HtmlAgilityPack.dll
+D:\PROJECTS\5Eagles\thegioicuaban.com\ArticleLibrary\bin\Debug\HtmlAgilityPack.pdb
+D:\PROJECTS\5Eagles\thegioicuaban.com\ArticleLibrary\bin\Debug\HtmlAgilityPack.xml

@@ -50,3 +50,4 @@ D:\PROJECTS\5Eagles\thegioicuaban.com\Source\CommonLibrary\obj\Debug\CommonLibra
 D:\PROJECTS\5Eagles\thegioicuaban.com\Source\CommonLibrary\obj\Debug\CommonLibrary.dll
 D:\PROJECTS\5Eagles\thegioicuaban.com\Source\CommonLibrary\obj\Debug\CommonLibrary.pdb
 D:\PROJECTS\5Eagles\thegioicuaban.com\Source\CommonLibrary\obj\Debug\CommonLibrary.csprojResolveAssemblyReference.cache
+D:\PROJECTS\5Eagles\thegioicuaban.com\CommonLibrary\bin\Debug\ICSharpCode.SharpZipLib.dll
